@@ -1,13 +1,11 @@
 interface ShareSectionProps {
   onKakaoShare: () => void;
   onCopyLink: () => void;
-  showCopyNotification: boolean;
 }
 
 export default function ShareSection({
   onKakaoShare,
   onCopyLink,
-  showCopyNotification,
 }: ShareSectionProps) {
   return (
     <section className="min-h-screen w-full flex flex-col items-center justify-center bg-white p-6">
@@ -29,13 +27,6 @@ export default function ShareSection({
             🔗 링크 복사
           </button>
         </div>
-
-        {/* Copy Success Notification */}
-        {showCopyNotification && (
-          <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-800 text-white px-6 py-4 rounded-lg shadow-lg z-50 animate-fade-in">
-            <p className="text-center">✅ 링크가 복사되었습니다!</p>
-          </div>
-        )}
 
         <div className="text-center pt-8 text-sm text-gray-500">
           <p>© 2026 Wedding Invitation</p>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import BackgroundMusic from "./components/BackgroundMusic";
 import MainPhotoSection from "./components/sections/MainPhotoSection";
 import DateVenueSection from "./components/sections/DateVenueSection";
@@ -11,8 +11,6 @@ import ShareSection from "./components/sections/ShareSection";
 import { initKakao, shareKakao } from "./utils/kakao";
 
 function App() {
-  const [showCopyNotification, setShowCopyNotification] = useState(false);
-
   // Constants
   const groomPhone = "01029473827";
   const bridePhone = "01029473827";
@@ -70,11 +68,7 @@ function App() {
     try {
       const currentUrl = window.location.href;
       await navigator.clipboard.writeText(currentUrl);
-
-      setShowCopyNotification(true);
-      setTimeout(() => {
-        setShowCopyNotification(false);
-      }, 2000);
+      alert("링크가 복사되었습니다!");
     } catch (error) {
       console.error("링크 복사 실패:", error);
       // Fallback for older browsers
@@ -86,10 +80,7 @@ function App() {
       textArea.select();
       try {
         document.execCommand("copy");
-        setShowCopyNotification(true);
-        setTimeout(() => {
-          setShowCopyNotification(false);
-        }, 2000);
+        alert("링크가 복사되었습니다!");
       } catch (err) {
         alert("링크 복사에 실패했습니다.");
       }
@@ -122,7 +113,6 @@ function App() {
       <ShareSection
         onKakaoShare={handleKakaoShare}
         onCopyLink={handleCopyLink}
-        showCopyNotification={showCopyNotification}
       />
     </div>
   );

@@ -26,15 +26,11 @@ export default function GiftSection({
 }: GiftSectionProps) {
   const [groomExpanded, setGroomExpanded] = useState(false);
   const [brideExpanded, setBrideExpanded] = useState(false);
-  const [copiedAccount, setCopiedAccount] = useState<string | null>(null);
 
   const handleCopyAccount = async (accountNumber: string, label: string) => {
     try {
       await navigator.clipboard.writeText(accountNumber);
-      setCopiedAccount(label);
-      setTimeout(() => {
-        setCopiedAccount(null);
-      }, 2000);
+      alert(`${label} 계좌번호가 복사되었습니다.`);
     } catch (error) {
       console.error("계좌번호 복사 실패:", error);
       // Fallback for older browsers
@@ -46,10 +42,7 @@ export default function GiftSection({
       textArea.select();
       try {
         document.execCommand("copy");
-        setCopiedAccount(label);
-        setTimeout(() => {
-          setCopiedAccount(null);
-        }, 2000);
+        alert(`${label} 계좌번호가 복사되었습니다.`);
       } catch (err) {
         alert("계좌번호 복사에 실패했습니다.");
       }
@@ -79,7 +72,7 @@ export default function GiftSection({
           onClick={() => handleCopyAccount(account.account, label)}
           className="px-3 py-1 bg-gray-800 text-white text-xs rounded hover:bg-gray-700 transition-colors"
         >
-          {copiedAccount === label ? "✓ 복사됨" : "복사"}
+          복사
         </button>
       </div>
       {account.kakaoPayLink && (
@@ -190,14 +183,6 @@ export default function GiftSection({
           </div>
         </div>
 
-        {/* Copy Success Notification */}
-        {copiedAccount && (
-          <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-800 text-white px-6 py-4 rounded-lg shadow-lg z-50">
-            <p className="text-center text-sm">
-              ✅ {copiedAccount} 계좌번호가 복사되었습니다!
-            </p>
-          </div>
-        )}
       </div>
     </section>
   );
