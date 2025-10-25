@@ -6,6 +6,11 @@ interface PhotoGalleryProps {
 
 export default function PhotoGallery({ images }: PhotoGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  // Minimum swipe distance (in px)
+  const minSwipeDistance = 50;
 
   const openModal = (index: number) => {
     setSelectedIndex(index);
@@ -19,26 +24,50 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
     document.body.style.overflow = "auto";
   };
 
-  const goToPrevious = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const goToPrevious = (e?: React.MouseEvent | React.TouchEvent) => {
+    e?.stopPropagation();
     if (selectedIndex !== null) {
       setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
     }
   };
 
-  const goToNext = (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const goToNext = (e?: React.MouseEvent | React.TouchEvent) => {
+    e?.stopPropagation();
     if (selectedIndex !== null) {
       setSelectedIndex((selectedIndex + 1) % images.length);
+    }
+  };
+
+  // Handle touch events for swipe
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrevious();
     }
   };
 
   // Handle keyboard navigation
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "ArrowLeft") {
-      goToPrevious(e as any);
+      goToPrevious();
     } else if (e.key === "ArrowRight") {
-      goToNext(e as any);
+      goToNext();
     } else if (e.key === "Escape") {
       closeModal();
     }
@@ -94,6 +123,9 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
           <div
             className="w-full h-full flex items-center justify-center px-16 py-20"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
           >
             <img
               src={images[selectedIndex]}
