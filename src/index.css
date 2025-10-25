@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+@layer components {
+  /* Snap Scroll Container */
+  .snap-container {
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    height: 100vh;
+    height: 100dvh;
+    /* 스크롤 속도 조절을 위한 추가 속성 */
+    overscroll-behavior: none;
+  }
+
+  /* Snap Scroll Section */
+  .snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* Optional: Remove scrollbar for cleaner look */
+  .snap-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .snap-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

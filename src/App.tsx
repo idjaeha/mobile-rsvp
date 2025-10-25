@@ -50,62 +50,87 @@ function App() {
   };
 
   const handleKakaoShare = () => {
-    shareKakao(data.metadata.title, data.metadata.description, data.metadata.ogImage);
+    shareKakao(
+      data.metadata.title,
+      data.metadata.description,
+      data.metadata.ogImage
+    );
   };
 
   return (
-    <div className="w-full overflow-x-hidden">
+    <div className="snap-container">
       <BackgroundMusic bgmUrl={data.metadata.bgmUrl} />
 
-      <MainPhotoSection
-        groomName={data.couple.groom.name}
-        brideName={data.couple.bride.name}
-        date={data.wedding.date}
-      />
-      <DateVenueSection
-        date={data.wedding.date}
-        time={data.wedding.time}
-        dayOfWeek={data.wedding.dayOfWeek}
-        venueName={data.wedding.venue.name}
-        venueAddress={data.wedding.venue.address}
-        venueHall={data.wedding.venue.hall}
-      />
-      <ParentsSection
-        groomName={data.couple.groom.name}
-        groomFather={data.couple.groom.father}
-        groomMother={data.couple.groom.mother}
-        brideName={data.couple.bride.name}
-        brideFather={data.couple.bride.father}
-        brideMother={data.couple.bride.mother}
-      />
-      <CoupleGallerySection
-        groomPhone={data.couple.groom.phone}
-        bridePhone={data.couple.bride.phone}
-        onCall={handleCall}
-        images={data.gallery.images}
-      />
-      <CalendarSection
-        date={data.wedding.date}
-      />
-      <LocationSection
-        placeName={data.wedding.venue.name}
-        address={data.wedding.venue.address}
-        latitude={data.wedding.venue.location.latitude}
-        longitude={data.wedding.venue.location.longitude}
-        mapUrl={data.map.kakao.url}
-        mapImageUrl={data.map.kakao.imageUrl}
-        subway={data.transportation.subway}
-        bus={data.transportation.bus}
-        parking={data.transportation.parking}
-      />
-      <GiftSection
-        groomAccounts={data.accounts.groom}
-        brideAccounts={data.accounts.bride}
-      />
-      <ShareSection
-        onKakaoShare={handleKakaoShare}
-        onCopyLink={handleCopyLink}
-      />
+      <div className="snap-section">
+        <MainPhotoSection
+          groomName={data.couple.groom.name}
+          brideName={data.couple.bride.name}
+          date={data.wedding.date}
+        />
+      </div>
+
+      <div className="snap-section">
+        <DateVenueSection
+          date={data.wedding.date}
+          time={data.wedding.time}
+          dayOfWeek={data.wedding.dayOfWeek}
+          venueName={data.wedding.venue.name}
+          venueAddress={data.wedding.venue.address}
+          venueHall={data.wedding.venue.hall}
+        />
+      </div>
+
+      <div className="snap-section">
+        <ParentsSection
+          groomName={data.couple.groom.name}
+          groomFather={data.couple.groom.father}
+          groomMother={data.couple.groom.mother}
+          brideName={data.couple.bride.name}
+          brideFather={data.couple.bride.father}
+          brideMother={data.couple.bride.mother}
+        />
+      </div>
+
+      <div className="snap-section">
+        <CoupleGallerySection
+          groomPhone={data.couple.groom.phone}
+          bridePhone={data.couple.bride.phone}
+          onCall={handleCall}
+          images={data.gallery.images}
+        />
+      </div>
+
+      <div className="snap-section">
+        <CalendarSection date={data.wedding.date} />
+      </div>
+
+      <div className="snap-section">
+        <LocationSection
+          placeName={data.wedding.venue.name}
+          address={data.wedding.venue.address}
+          latitude={data.wedding.venue.location.latitude}
+          longitude={data.wedding.venue.location.longitude}
+          mapUrl={data.map.kakao.url}
+          mapImageUrl={data.map.kakao.imageUrl}
+          subway={data.transportation.subway}
+          bus={data.transportation.bus}
+          parking={data.transportation.parking}
+        />
+      </div>
+
+      <div className="snap-section">
+        <GiftSection
+          groomAccounts={data.accounts.groom}
+          brideAccounts={data.accounts.bride}
+        />
+      </div>
+
+      <div className="snap-section">
+        <ShareSection
+          onKakaoShare={handleKakaoShare}
+          onCopyLink={handleCopyLink}
+        />
+      </div>
     </div>
   );
 }
