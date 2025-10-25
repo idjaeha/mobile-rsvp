@@ -1,6 +1,13 @@
+import BackgroundMusic from "./components/BackgroundMusic";
+import PhotoGallery from "./components/PhotoGallery";
+
 function App() {
+  const kakaoTalkAccountLink = "https://qr.kakaopay.com/Ej86awFY5"; // 카카오페이 송금 링크
+
   return (
     <div className="w-full overflow-x-hidden">
+      {/* Background Music Component */}
+      <BackgroundMusic />
       {/* 1. Main Photo Section */}
       <section className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-rose-50 to-white p-6">
         <div className="text-center space-y-6">
@@ -36,36 +43,35 @@ function App() {
           <h2 className="text-3xl font-serif text-gray-800">부모님 파트</h2>
           <div className="space-y-8">
             <div className="space-y-2">
-              <p className="text-sm text-gray-500">신랑측 부모님</p>
+              <p className="text-sm text-gray-500">동현의 부모님</p>
               <p className="text-lg text-gray-800">아버지 이름 · 어머니 이름</p>
-              <p className="text-gray-600">
-                의 장남 <span className="font-medium">신랑 이름</span>
-              </p>
             </div>
             <div className="border-t border-rose-200 pt-8 space-y-2">
-              <p className="text-sm text-gray-500">신부측 부모님</p>
+              <p className="text-sm text-gray-500">유진의 부모님</p>
               <p className="text-lg text-gray-800">아버지 이름 · 어머니 이름</p>
-              <p className="text-gray-600">
-                의 장녀 <span className="font-medium">신부 이름</span>
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. Couple Section */}
-      <section className="min-h-screen w-full flex flex-col items-center justify-center bg-white p-6">
+      {/* 4. Couple Section with Photo Gallery */}
+      <section className="min-h-screen w-full flex flex-col items-center justify-center bg-white p-6 py-12">
         <div className="text-center space-y-12 max-w-md w-full">
-          <h2 className="text-3xl font-serif text-gray-800">신랑 신부</h2>
-          <div className="space-y-8">
+          <h2 className="text-3xl font-serif text-gray-800">우리의 순간들</h2>
+
+          {/* Photo Gallery */}
+          <PhotoGallery />
+
+          {/* Couple Contact Info */}
+          <div className="space-y-8 pt-8">
             <div className="space-y-4">
-              <h3 className="text-xl font-medium text-gray-800">신랑 이름</h3>
+              <h3 className="text-xl font-medium text-gray-800">신랑 곽동현</h3>
               <button className="px-6 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-50 transition-colors">
                 📞 연락하기
               </button>
             </div>
             <div className="border-t border-gray-200 pt-8 space-y-4">
-              <h3 className="text-xl font-medium text-gray-800">신부 이름</h3>
+              <h3 className="text-xl font-medium text-gray-800">신부 최유진</h3>
               <button className="px-6 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-50 transition-colors">
                 📞 연락하기
               </button>
@@ -140,8 +146,11 @@ function App() {
                 </button>
               </div>
             </div>
-            <button className="w-full py-4 bg-yellow-400 text-gray-800 font-medium rounded-lg hover:bg-yellow-500 transition-colors">
-              💛 카카오페이 송금하기
+            <button
+              className="w-full py-4 bg-yellow-400 text-gray-800 font-medium rounded-lg hover:bg-yellow-500 transition-colors"
+              onClick={() => window.open(kakaoTalkAccountLink, "_blank")}
+            >
+              💛 카카오로 송금하기
             </button>
           </div>
         </div>
