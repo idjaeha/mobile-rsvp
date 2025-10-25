@@ -10,7 +10,7 @@ export const initKakao = () => {
   if (window.Kakao && !window.Kakao.isInitialized()) {
     // JavaScript 키를 여기에 입력하세요
     // https://developers.kakao.com/ 에서 앱 생성 후 JavaScript 키를 받을 수 있습니다
-    window.Kakao.init("SBRVISiQp9OqiMFCoy0niIvBaYCm8sHv");
+    window.Kakao.init("f6c7f34cbea8c7ca5f32caa71ccca7e3");
     console.log("Kakao SDK initialized:", window.Kakao.isInitialized());
   }
 };
