@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface PhotoGalleryProps {
   images: string[];
@@ -8,9 +8,17 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
 
   // Minimum swipe distance (in px)
   const minSwipeDistance = 50;
+
+  // Auto-focus modal when opened
+  useEffect(() => {
+    if (selectedIndex !== null && modalRef.current) {
+      modalRef.current.focus();
+    }
+  }, [selectedIndex]);
 
   const openModal = (index: number) => {
     setSelectedIndex(index);
@@ -95,7 +103,8 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
       {/* Modal Viewer */}
       {selectedIndex !== null && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-0 m-0"
+          ref={modalRef}
+          className="fixed inset-0 bg-black z-50 flex items-center justify-center p-0 m-0"
           onClick={closeModal}
           onKeyDown={handleKeyDown}
           tabIndex={0}
