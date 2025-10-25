@@ -1,5 +1,6 @@
 import BackgroundMusic from "./components/BackgroundMusic";
 import PhotoGallery from "./components/PhotoGallery";
+import WeddingCalendar from "./components/WeddingCalendar";
 
 function App() {
   const kakaoTalkAccountLink = "https://qr.kakaopay.com/Ej86awFY5"; // 카카오페이 송금 링크
@@ -14,7 +15,7 @@ function App() {
           {/* Main Photo */}
           <div className="w-full max-w-md mx-auto"></div>
           <h1 className="text-4xl font-serif text-gray-800">최유진 & 곽동현</h1>
-          <p className="text-lg text-gray-500">2026.03.XX</p>
+          <p className="text-lg text-gray-500">2026.03.21</p>
         </div>
       </section>
 
@@ -26,7 +27,7 @@ function App() {
           </h2>
           <div className="space-y-4">
             <div className="space-y-2">
-              <p className="text-xl text-gray-700">2026년 03월 XX일 XX요일</p>
+              <p className="text-xl text-gray-700">2026년 03월 21일 토요일</p>
               <p className="text-lg text-gray-600">오후 X시 XX분</p>
             </div>
             <div className="border-t border-gray-200 pt-4 space-y-2">
@@ -84,12 +85,7 @@ function App() {
       <section className="min-h-screen w-full flex flex-col items-center justify-center bg-rose-50 p-6">
         <div className="text-center space-y-8 max-w-md w-full">
           <h2 className="text-3xl font-serif text-gray-800">날짜 상세</h2>
-          <div className="bg-white rounded-lg p-6 shadow-sm">
-            <p className="text-gray-600 mb-4">캘린더 컴포넌트</p>
-            <div className="border-t border-gray-200 pt-4">
-              <p className="text-2xl font-medium text-rose-600">D-Day</p>
-            </div>
-          </div>
+          <WeddingCalendar year={2026} month={3} day={21} />
         </div>
       </section>
 
