@@ -4,6 +4,12 @@ import WeddingCalendar from "./components/WeddingCalendar";
 
 function App() {
   const kakaoTalkAccountLink = "https://qr.kakaopay.com/Ej86awFY5"; // 카카오페이 송금 링크
+  const groomPhone = "01029473827"; // 신랑 전화번호
+  const bridePhone = "01029473827"; // 신부 전화번호
+
+  const handleCall = (phoneNumber: string) => {
+    window.location.href = `tel:${phoneNumber}`;
+  };
 
   return (
     <div className="w-full overflow-x-hidden">
@@ -67,13 +73,19 @@ function App() {
           <div className="space-y-8 pt-8">
             <div className="space-y-4">
               <h3 className="text-xl font-medium text-gray-800">신랑 곽동현</h3>
-              <button className="px-6 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-50 transition-colors">
+              <button
+                onClick={() => handleCall(groomPhone)}
+                className="px-6 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-50 transition-colors active:bg-gray-100"
+              >
                 📞 연락하기
               </button>
             </div>
             <div className="border-t border-gray-200 pt-8 space-y-4">
               <h3 className="text-xl font-medium text-gray-800">신부 최유진</h3>
-              <button className="px-6 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-50 transition-colors">
+              <button
+                onClick={() => handleCall(bridePhone)}
+                className="px-6 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-50 transition-colors active:bg-gray-100"
+              >
                 📞 연락하기
               </button>
             </div>
