@@ -9,50 +9,11 @@ import LocationSection from "./components/sections/LocationSection";
 import GiftSection from "./components/sections/GiftSection";
 import ShareSection from "./components/sections/ShareSection";
 import { initKakao, shareKakao } from "./utils/kakao";
+import weddingData from "./data/wedding.json";
+import type { WeddingData } from "./types/wedding";
 
 function App() {
-  // Constants
-  const groomPhone = "01029473827";
-  const bridePhone = "01029473827";
-
-  // Account Information
-  const groomAccounts = {
-    groom: {
-      name: "신랑 권동현",
-      bank: "카카오뱅크",
-      account: "3333-01-2345678",
-      kakaoPayLink: "https://qr.kakaopay.com/Ej86awFY5",
-    },
-    father: {
-      name: "아버지 ○○○",
-      bank: "국민은행",
-      account: "123-456-789012",
-    },
-    mother: {
-      name: "어머니 ○○○",
-      bank: "신한은행",
-      account: "110-123-456789",
-    },
-  };
-
-  const brideAccounts = {
-    bride: {
-      name: "신부 최유진",
-      bank: "카카오뱅크",
-      account: "3333-09-8765432",
-      kakaoPayLink: "https://qr.kakaopay.com/Ej86awFY5",
-    },
-    father: {
-      name: "아버지 ○○○",
-      bank: "우리은행",
-      account: "1002-123-456789",
-    },
-    mother: {
-      name: "어머니 ○○○",
-      bank: "하나은행",
-      account: "123-910-123456",
-    },
-  };
+  const data = weddingData as WeddingData;
 
   // Initialize Kakao SDK on mount
   useEffect(() => {
@@ -89,26 +50,57 @@ function App() {
   };
 
   const handleKakaoShare = () => {
-    shareKakao();
+    shareKakao(data.metadata.title, data.metadata.description, data.metadata.ogImage);
   };
 
   return (
     <div className="w-full overflow-x-hidden">
-      <BackgroundMusic />
+      <BackgroundMusic bgmUrl={data.metadata.bgmUrl} />
 
-      <MainPhotoSection />
-      <DateVenueSection />
-      <ParentsSection />
-      <CoupleGallerySection
-        groomPhone={groomPhone}
-        bridePhone={bridePhone}
-        onCall={handleCall}
+      <MainPhotoSection
+        groomName={data.couple.groom.name}
+        brideName={data.couple.bride.name}
+        date={data.wedding.date}
       />
-      <CalendarSection />
-      <LocationSection />
+      <DateVenueSection
+        date={data.wedding.date}
+        time={data.wedding.time}
+        dayOfWeek={data.wedding.dayOfWeek}
+        venueName={data.wedding.venue.name}
+        venueAddress={data.wedding.venue.address}
+        venueHall={data.wedding.venue.hall}
+      />
+      <ParentsSection
+        groomName={data.couple.groom.name}
+        groomFather={data.couple.groom.father}
+        groomMother={data.couple.groom.mother}
+        brideName={data.couple.bride.name}
+        brideFather={data.couple.bride.father}
+        brideMother={data.couple.bride.mother}
+      />
+      <CoupleGallerySection
+        groomPhone={data.couple.groom.phone}
+        bridePhone={data.couple.bride.phone}
+        onCall={handleCall}
+        images={data.gallery.images}
+      />
+      <CalendarSection
+        date={data.wedding.date}
+      />
+      <LocationSection
+        placeName={data.wedding.venue.name}
+        address={data.wedding.venue.address}
+        latitude={data.wedding.venue.location.latitude}
+        longitude={data.wedding.venue.location.longitude}
+        mapUrl={data.map.kakao.url}
+        mapImageUrl={data.map.kakao.imageUrl}
+        subway={data.transportation.subway}
+        bus={data.transportation.bus}
+        parking={data.transportation.parking}
+      />
       <GiftSection
-        groomAccounts={groomAccounts}
-        brideAccounts={brideAccounts}
+        groomAccounts={data.accounts.groom}
+        brideAccounts={data.accounts.bride}
       />
       <ShareSection
         onKakaoShare={handleKakaoShare}

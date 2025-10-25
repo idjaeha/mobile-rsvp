@@ -16,7 +16,11 @@ export const initKakao = () => {
 };
 
 // 카카오톡 공유하기
-export const shareKakao = () => {
+export const shareKakao = (
+  title: string,
+  description: string,
+  imageUrl: string
+) => {
   if (!window.Kakao) {
     alert("카카오톡 공유 기능을 사용할 수 없습니다.");
     return;
@@ -27,10 +31,9 @@ export const shareKakao = () => {
   window.Kakao.Share.sendDefault({
     objectType: "feed",
     content: {
-      title: "최유진과 권동현 결혼합니다 🤵🏻‍♂️👰🏻‍♀️",
-      description:
-        "2026년 03월 28일 토요일 오후 3:30\n두 사람의 소중한 날에 함께해 주세요 💒",
-      imageUrl: window.location.origin + "/thumbnail.jpeg",
+      title,
+      description,
+      imageUrl: window.location.origin + imageUrl,
       link: {
         mobileWebUrl: currentUrl,
         webUrl: currentUrl,

@@ -1,30 +1,10 @@
 import { useState } from "react";
 
-// Import all gallery images
-import image1 from "../assets/gallery/image1.jpeg";
-import image2 from "../assets/gallery/image2.jpeg";
-import image3 from "../assets/gallery/image3.jpeg";
-import image4 from "../assets/gallery/image4.jpeg";
-import image5 from "../assets/gallery/image5.jpeg";
-import image7 from "../assets/gallery/image7.jpeg";
-import image8 from "../assets/gallery/image8.jpeg";
-import image9 from "../assets/gallery/image9.jpeg";
-import image10 from "../assets/gallery/image10.jpeg";
+interface PhotoGalleryProps {
+  images: string[];
+}
 
-const photos = [
-  image2,
-  image9,
-  image8,
-  image5,
-  image1,
-  image10,
-  image7,
-  image4,
-  image3,
-  // image6,
-];
-
-export default function PhotoGallery() {
+export default function PhotoGallery({ images }: PhotoGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const openModal = (index: number) => {
@@ -42,14 +22,14 @@ export default function PhotoGallery() {
   const goToPrevious = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (selectedIndex !== null) {
-      setSelectedIndex((selectedIndex - 1 + photos.length) % photos.length);
+      setSelectedIndex((selectedIndex - 1 + images.length) % images.length);
     }
   };
 
   const goToNext = (e: React.MouseEvent) => {
     e.stopPropagation();
     if (selectedIndex !== null) {
-      setSelectedIndex((selectedIndex + 1) % photos.length);
+      setSelectedIndex((selectedIndex + 1) % images.length);
     }
   };
 
@@ -68,14 +48,14 @@ export default function PhotoGallery() {
     <>
       {/* 3x4 Grid Gallery */}
       <div className="grid grid-cols-3 gap-2 w-full max-w-md mx-auto">
-        {photos.map((photo, index) => (
+        {images.map((image, index) => (
           <button
             key={index}
             onClick={() => openModal(index)}
             className="aspect-square overflow-hidden rounded-lg hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-rose-400"
           >
             <img
-              src={photo}
+              src={image}
               alt={`Wedding photo ${index + 1}`}
               className="w-full h-full object-cover"
             />
@@ -116,7 +96,7 @@ export default function PhotoGallery() {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={photos[selectedIndex]}
+              src={images[selectedIndex]}
               alt={`Wedding photo ${selectedIndex + 1}`}
               className="max-w-full max-h-full object-contain"
             />
@@ -133,7 +113,7 @@ export default function PhotoGallery() {
 
           {/* Photo Counter */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
-            {selectedIndex + 1} / {photos.length}
+            {selectedIndex + 1} / {images.length}
           </div>
         </div>
       )}

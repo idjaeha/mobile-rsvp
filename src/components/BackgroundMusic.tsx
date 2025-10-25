@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function BackgroundMusic() {
+interface BackgroundMusicProps {
+  bgmUrl: string;
+}
+
+export default function BackgroundMusic({ bgmUrl }: BackgroundMusicProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
@@ -54,7 +58,7 @@ export default function BackgroundMusic() {
   return (
     <>
       {/* Audio Element */}
-      <audio ref={audioRef} src="/bgm.mp3" loop preload="auto" />
+      <audio ref={audioRef} src={bgmUrl} loop preload="auto" />
 
       {/* Floating Music Toggle Button */}
       <button

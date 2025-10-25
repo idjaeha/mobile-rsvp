@@ -1,0 +1,100 @@
+{
+  "couple": {
+    "groom": {
+      "name": "권동현",
+      "fullName": "권동현",
+      "phone": "01029473827",
+      "father": "권○○",
+      "mother": "○○○"
+    },
+    "bride": {
+      "name": "최유진",
+      "fullName": "최유진",
+      "phone": "01029473827",
+      "father": "최○○",
+      "mother": "○○○"
+    }
+  },
+  "wedding": {
+    "date": "2026-03-28",
+    "time": "15:30",
+    "dayOfWeek": "토요일",
+    "venue": {
+      "name": "식장 이름",
+      "address": "주소 정보",
+      "hall": "층 정보",
+      "location": {
+        "latitude": 37.4979,
+        "longitude": 127.0276
+      }
+    }
+  },
+  "accounts": {
+    "groom": {
+      "groom": {
+        "name": "신랑 권동현",
+        "bank": "카카오뱅크",
+        "account": "3333-01-2345678",
+        "kakaoPayLink": "https://qr.kakaopay.com/Ej86awFY5"
+      },
+      "father": {
+        "name": "아버지 권○○",
+        "bank": "국민은행",
+        "account": "123-456-789012"
+      },
+      "mother": {
+        "name": "어머니 ○○○",
+        "bank": "신한은행",
+        "account": "110-123-456789"
+      }
+    },
+    "bride": {
+      "bride": {
+        "name": "신부 최유진",
+        "bank": "카카오뱅크",
+        "account": "3333-09-8765432",
+        "kakaoPayLink": "https://qr.kakaopay.com/BRIDE_LINK"
+      },
+      "father": {
+        "name": "아버지 최○○",
+        "bank": "우리은행",
+        "account": "1002-123-456789"
+      },
+      "mother": {
+        "name": "어머니 ○○○",
+        "bank": "하나은행",
+        "account": "123-910-123456"
+      }
+    }
+  },
+  "transportation": {
+    "subway": "지하철 정보",
+    "bus": "버스 정보",
+    "parking": "주차 정보"
+  },
+  "map": {
+    "kakao": {
+      "url": "https://map.kakao.com/?urlX=509642&urlY=1113296&urlLevel=3",
+      "imageUrl": "https://map2.daum.net/map/mapservice?FORMAT=PNG&SCALE=2.5&MX=509642&MY=1113296&S=0&IW=504&IH=310&LANG=0&COORDSTM=WCONGNAMUL&logo=kakao_logo"
+    }
+  },
+  "gallery": {
+    "images": [
+      "/images/image1.jpeg",
+      "/images/image2.jpeg",
+      "/images/image3.jpeg",
+      "/images/image4.jpeg",
+      "/images/image5.jpeg",
+      "/images/image7.jpeg",
+      "/images/image8.jpeg",
+      "/images/image9.jpeg",
+      "/images/image10.jpeg"
+    ]
+  },
+  "metadata": {
+    "title": "최유진과 권동현 결혼합니다 🤵🏻‍♂️👰🏻‍♀️",
+    "description": "2026년 03월 28일 토요일 오후 3:30",
+    "ogImage": "/thumbnail.jpeg",
+    "bgmUrl": "/bgm.mp3"
+  }
+}

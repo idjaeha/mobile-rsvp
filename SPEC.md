@@ -15,22 +15,28 @@
 
 **Last Updated**: 2025-10-25
 
-**Progress**: Phase 2 (Content Integration) - In Progress
+**Progress**: Phase 3 (Interactive Features) - Completed
 
 **Completed Features**:
 
 - ✅ Full-height layout implementation
 - ✅ Background music with toggle control
 - ✅ Photo gallery with modal viewer
+- ✅ Calendar component with D-day counter
+- ✅ Map integration (Kakao, Naver, Tmap)
+- ✅ Copy to clipboard functionality (accounts, URL)
+- ✅ KakaoTalk share integration
+- ✅ Component refactoring (section-based organization)
+- ✅ Gift section with accordion UI
+- ✅ Data management (JSON + TypeScript)
 - ✅ Basic styling and responsive design
 - ✅ Asset management (public/ and src/assets/)
 
 **Next Steps**:
 
-- ⏳ Calendar component implementation
-- ⏳ Map integration (Naver Maps)
-- ⏳ Copy to clipboard functionality
-- ⏳ KakaoTalk share integration
+- ⏳ Animation and polish (Phase 4)
+- ⏳ Performance optimization
+- ⏳ Cross-browser testing
 
 ## Design Requirements
 
@@ -263,22 +269,85 @@ mobile-rsvp/
 ├── public/                      # Static assets (Vite public folder)
 │   ├── bgm.mp3                 # Background music file
 │   ├── love-letter.svg         # Favicon
-│   └── KakaoTalk_Photo_..._002.jpeg  # OG image
+│   └── thumbnail.jpeg          # OG image
 ├── src/
 │   ├── App.tsx                 # Main application component
 │   ├── main.tsx                # Entry point
+│   ├── data/                   # Data files
+│   │   └── wedding.json        # Wedding data (JSON format)
+│   ├── types/                  # TypeScript type definitions
+│   │   └── wedding.ts          # Wedding data types
+│   ├── utils/                  # Utility functions
+│   │   └── kakao.ts            # Kakao SDK utilities
 │   ├── components/             # React components
 │   │   ├── BackgroundMusic.tsx # BGM player with toggle
-│   │   └── PhotoGallery.tsx    # Photo gallery with modal
+│   │   ├── PhotoGallery.tsx    # Photo gallery with modal
+│   │   ├── WeddingCalendar.tsx # Calendar with D-day
+│   │   └── sections/           # Section components
+│   │       ├── MainPhotoSection.tsx
+│   │       ├── DateVenueSection.tsx
+│   │       ├── ParentsSection.tsx
+│   │       ├── CoupleGallerySection.tsx
+│   │       ├── CalendarSection.tsx
+│   │       ├── LocationSection.tsx
+│   │       ├── GiftSection.tsx
+│   │       └── ShareSection.tsx
 │   ├── assets/                 # Imported assets
 │   │   └── gallery/            # Gallery images (10 files)
 │   │       └── image1~10.jpeg
 ├── index.html                  # HTML template with meta tags
 ├── SPEC.md                     # This specification document
+├── SPEC_DATA_MANAGEMENT.md     # Data management strategy
 ├── package.json
 ├── tsconfig.json
 └── vite.config.ts
 ```
+
+## Data Management System
+
+### Overview
+
+The application uses a centralized JSON-based data management system with TypeScript type safety. All wedding data is stored in a single JSON file and accessed through typed interfaces.
+
+### Data Structure
+
+**File**: `src/data/wedding.json`
+
+**Type Definitions**: `src/types/wedding.ts`
+
+**Key Data Categories**:
+
+1. **Couple Information** - Names, phone numbers, parent names
+2. **Wedding Details** - Date, time, venue information, coordinates
+3. **Account Information** - Bank details for gift section (6 accounts)
+4. **Transportation** - Subway, bus, parking information
+5. **Map Data** - Kakao map URLs and images
+6. **Gallery** - Image paths for photo gallery
+7. **Metadata** - Title, description, OG image, BGM URL
+
+### Benefits
+
+- **Type Safety**: Full TypeScript support with interfaces
+- **Centralized Management**: Single source of truth for all data
+- **Easy Updates**: Modify data without touching component code
+- **Maintainability**: Clear separation of data and logic
+- **Reusability**: Can be easily adapted for other weddings
+
+### Type Interfaces
+
+```typescript
+interface WeddingData {
+  couple: { groom: PersonInfo; bride: PersonInfo; };
+  wedding: WeddingInfo;
+  accounts: { groom: {...}; bride: {...}; };
+  transportation: { subway: string; bus: string; parking: string; };
+  map: { kakao: { url: string; imageUrl: string; }; };
+  gallery: { images: string[]; };
+  metadata: { title: string; description: string; ogImage: string; bgmUrl: string; };
+}
+```
+
+For detailed information, see [SPEC_DATA_MANAGEMENT.md](./SPEC_DATA_MANAGEMENT.md)
 
 ## Components Documentation
 
