@@ -18,6 +18,7 @@
 **Progress**: Phase 2 (Content Integration) - In Progress
 
 **Completed Features**:
+
 - ✅ Full-height layout implementation
 - ✅ Background music with toggle control
 - ✅ Photo gallery with modal viewer
@@ -25,6 +26,7 @@
 - ✅ Asset management (public/ and src/assets/)
 
 **Next Steps**:
+
 - ⏳ Calendar component implementation
 - ⏳ Map integration (Naver Maps)
 - ⏳ Copy to clipboard functionality
@@ -127,7 +129,7 @@
   - 배경: white
   - 지도 영역: gray-100, h-64, rounded-lg
 
-#### 7. Gift Section (마음 전하는 곳)
+#### 7. Gift Section (마음 전하실 곳)
 
 - **Purpose**: 축의금 계좌 정보
 - **Layout**: 전체 화면 (min-h-screen)
@@ -285,6 +287,7 @@ mobile-rsvp/
 **File**: `src/components/BackgroundMusic.tsx`
 
 **Features**:
+
 - Audio element with loop
 - Auto-play on user interaction (click, touch, scroll)
 - Floating toggle button (fixed bottom-6 left-6)
@@ -294,6 +297,7 @@ mobile-rsvp/
 **Props**: None
 
 **State**:
+
 - `isPlaying`: boolean - current playback state
 - `hasInteracted`: boolean - user interaction flag
 
@@ -302,6 +306,7 @@ mobile-rsvp/
 **File**: `src/components/PhotoGallery.tsx`
 
 **Features**:
+
 - 3x4 grid layout (3 columns, aspect-square)
 - Click to open full-screen modal
 - Modal navigation (← → arrows, keyboard)
@@ -311,9 +316,11 @@ mobile-rsvp/
 **Props**: None
 
 **State**:
+
 - `selectedIndex`: number | null - currently selected photo
 
 **Keyboard Support**:
+
 - `←` Previous photo
 - `→` Next photo
 - `ESC` Close modal
@@ -323,6 +330,7 @@ mobile-rsvp/
 ### Public Folder (`public/`)
 
 Files accessed directly via URL path:
+
 - `bgm.mp3` - Background music (accessed as `/bgm.mp3`)
 - `love-letter.svg` - Favicon (accessed as `/love-letter.svg`)
 - OG images for social sharing
@@ -332,12 +340,14 @@ Files accessed directly via URL path:
 ### Src Assets (`src/assets/`)
 
 Files imported in React components:
+
 - Gallery images (`src/assets/gallery/`)
 - Component-specific images
 
 **Usage**: Import statements in components
+
 ```tsx
-import image1 from '../assets/gallery/image1.jpeg';
+import image1 from "../assets/gallery/image1.jpeg";
 ```
 
 ## Meta Tags & SEO
@@ -353,6 +363,7 @@ import image1 from '../assets/gallery/image1.jpeg';
 ## Next Steps
 
 ### Immediate (Phase 2 completion)
+
 1. ✅ ~~Background music implementation~~
 2. ✅ ~~Photo gallery with modal viewer~~
 3. Add actual wedding information (dates, venue, names)
@@ -360,12 +371,14 @@ import image1 from '../assets/gallery/image1.jpeg';
 5. Implement URL copy functionality
 
 ### Short-term (Phase 3)
+
 1. Calendar component with D-day counter
 2. Naver Maps integration
 3. KakaoTalk share API integration
 4. Phone number links (tel:)
 
 ### Long-term (Phase 4)
+
 1. Scroll animations
 2. Image optimization and lazy loading
 3. Performance testing
