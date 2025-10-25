@@ -22,7 +22,7 @@ export default function CoupleGallerySection({
         {/* Couple Contact Info */}
         <div className="space-y-8 pt-8">
           <div className="space-y-4">
-            <h3 className="text-xl font-medium text-gray-800">신랑 곽동현</h3>
+            <h3 className="text-xl font-medium text-gray-800">신랑 권동현</h3>
             <button
               onClick={() => onCall(groomPhone)}
               className="px-6 py-2 border border-gray-300 rounded-full text-gray-700 hover:bg-gray-50 transition-colors active:bg-gray-100"

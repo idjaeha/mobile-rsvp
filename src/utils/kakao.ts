@@ -27,9 +27,9 @@ export const shareKakao = () => {
   window.Kakao.Share.sendDefault({
     objectType: "feed",
     content: {
-      title: "최유진과 곽동현 결혼합니다 🤵🏻‍♂️👰🏻‍♀️",
+      title: "최유진과 권동현 결혼합니다 🤵🏻‍♂️👰🏻‍♀️",
       description:
-        "2026년 03월 21일 토요일 오후\n두 사람의 소중한 날에 함께해 주세요 💒",
+        "2026년 03월 28일 토요일 오후 3:30\n두 사람의 소중한 날에 함께해 주세요 💒",
       imageUrl: window.location.origin + "/thumbnail.jpeg",
       link: {
         mobileWebUrl: currentUrl,

@@ -4,8 +4,8 @@ export default function MainPhotoSection() {
       <div className="text-center space-y-6">
         {/* Main Photo */}
         <div className="w-full max-w-md mx-auto"></div>
-        <h1 className="text-4xl font-serif text-gray-800">최유진 & 곽동현</h1>
-        <p className="text-lg text-gray-500">2026.03.21</p>
+        <h1 className="text-4xl font-serif text-gray-800">최유진 & 권동현</h1>
+        <p className="text-lg text-gray-500">2026.03.28</p>
       </div>
     </section>
   );

@@ -18,13 +18,13 @@ function App() {
   // Account Information
   const groomAccounts = {
     groom: {
-      name: "신랑 곽동현",
+      name: "신랑 권동현",
       bank: "카카오뱅크",
       account: "3333-01-2345678",
       kakaoPayLink: "https://qr.kakaopay.com/Ej86awFY5",
     },
     father: {
-      name: "아버지 곽○○",
+      name: "아버지 ○○○",
       bank: "국민은행",
       account: "123-456-789012",
     },
@@ -43,7 +43,7 @@ function App() {
       kakaoPayLink: "https://qr.kakaopay.com/Ej86awFY5",
     },
     father: {
-      name: "아버지 최○○",
+      name: "아버지 ○○○",
       bank: "우리은행",
       account: "1002-123-456789",
     },

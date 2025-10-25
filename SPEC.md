@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-최유진 & 곽동현 모바일 청첩장 웹 애플리케이션
+최유진 & 권동현 모바일 청첩장 웹 애플리케이션
 
 ## Tech Stack
 
@@ -47,7 +47,7 @@
 - **Status**: ✅ Implemented
 - **Content**:
   - 대표 사진 영역 (placeholder)
-  - 신랑 신부 이름: "최유진 & 곽동현"
+  - 신랑 신부 이름: "최유진 & 권동현"
   - 결혼식 날짜: "2026.03.XX"
 - **Styling**:
   - 배경: gradient from rose-50 to white
@@ -93,7 +93,7 @@
     - 키보드 네비게이션 (← → ESC)
     - 사진 카운터 표시
   - **연락처**:
-    - 신랑 곽동현 (연락하기 버튼)
+    - 신랑 권동현 (연락하기 버튼)
     - 신부 최유진 (연락하기 버튼)
 - **Components**:
   - `PhotoGallery.tsx`: 갤러리 및 모달 뷰어
@@ -354,7 +354,7 @@ import image1 from "../assets/gallery/image1.jpeg";
 
 **Implemented in** `index.html`:
 
-- Title: "최유진과 곽동현 결혼합니다 🤵🏻‍♂️👰🏻‍♀️"
+- Title: "최유진과 권동현 결혼합니다 🤵🏻‍♂️👰🏻‍♀️"
 - Description: "2026.03.XX (X) XX:XX"
 - Open Graph tags for social sharing
 - Twitter Card tags
