@@ -18,8 +18,8 @@ export default function BackgroundMusic({ bgmUrl }: BackgroundMusicProps) {
       if (!hasInteracted) {
         try {
           await audio.play();
-          setIsPlaying(true);
           setHasInteracted(true);
+          setIsPlaying(true);
         } catch (error) {
           console.log("Autoplay prevented:", error);
         }
@@ -29,12 +29,10 @@ export default function BackgroundMusic({ bgmUrl }: BackgroundMusicProps) {
     // 다양한 인터랙션 이벤트 리스너
     document.addEventListener("click", handleFirstInteraction);
     document.addEventListener("touchstart", handleFirstInteraction);
-    document.addEventListener("scroll", handleFirstInteraction);
 
     return () => {
       document.removeEventListener("click", handleFirstInteraction);
       document.removeEventListener("touchstart", handleFirstInteraction);
-      document.removeEventListener("scroll", handleFirstInteraction);
     };
   }, [hasInteracted]);
 
