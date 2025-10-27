@@ -22,7 +22,7 @@ export default function DateVenueSection({
   const displayHour = hourNum > 12 ? hourNum - 12 : hourNum;
 
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center bg-white p-6">
+    <section className="min-h-screen w-full flex flex-col items-center justify-center bg-rose-50 p-6">
       <div className="text-center space-y-8 max-w-md">
         <h2 className="text-3xl font-serif text-gray-800">날짜 및 식장 정보</h2>
         <div className="space-y-4">

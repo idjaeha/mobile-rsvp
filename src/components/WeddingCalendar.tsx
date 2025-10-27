@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 interface WeddingCalendarProps {
   year: number;
@@ -6,7 +6,11 @@ interface WeddingCalendarProps {
   day: number;
 }
 
-export default function WeddingCalendar({ year, month, day }: WeddingCalendarProps) {
+export default function WeddingCalendar({
+  year,
+  month,
+  day,
+}: WeddingCalendarProps) {
   const [dDay, setDDay] = useState<number>(0);
 
   // Calculate D-day
@@ -57,11 +61,21 @@ export default function WeddingCalendar({ year, month, day }: WeddingCalendarPro
   }
 
   const monthNames = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
   ];
 
-  const weekDays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  const weekDays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
   return (
     <div className="w-full max-w-md mx-auto space-y-6">
@@ -83,7 +97,11 @@ export default function WeddingCalendar({ year, month, day }: WeddingCalendarPro
             <div
               key={weekDay}
               className={`text-center text-xs font-medium py-2 ${
-                index === 0 ? 'text-red-500' : index === 6 ? 'text-blue-500' : 'text-gray-600'
+                index === 0
+                  ? "text-red-500"
+                  : index === 6
+                  ? "text-blue-500"
+                  : "text-gray-600"
               }`}
             >
               {weekDay}
@@ -104,14 +122,14 @@ export default function WeddingCalendar({ year, month, day }: WeddingCalendarPro
                 key={index}
                 className={`aspect-square flex items-center justify-center rounded-lg text-sm transition-colors ${
                   dayNum === null
-                    ? ''
+                    ? ""
                     : isWeddingDay
-                    ? 'bg-rose-500 text-white font-bold shadow-md scale-110'
+                    ? "bg-rose-500 text-white font-bold shadow-md scale-110"
                     : isSunday
-                    ? 'text-red-500 hover:bg-red-50'
+                    ? "text-red-500 hover:bg-red-50"
                     : isSaturday
-                    ? 'text-blue-500 hover:bg-blue-50'
-                    : 'text-gray-700 hover:bg-gray-100'
+                    ? "text-blue-500 hover:bg-blue-50"
+                    : "text-gray-700 hover:bg-gray-100"
                 }`}
               >
                 {dayNum}
@@ -146,8 +164,12 @@ export default function WeddingCalendar({ year, month, day }: WeddingCalendarPro
           </div>
         ) : (
           <div className="space-y-1">
-            <p className="text-4xl font-bold text-gray-600">D+{Math.abs(dDay)}</p>
-            <p className="text-sm text-gray-500">결혼한지 {Math.abs(dDay)}일 되었습니다 💕</p>
+            <p className="text-4xl font-bold text-gray-600">
+              D+{Math.abs(dDay)}
+            </p>
+            <p className="text-sm text-gray-500">
+              결혼한지 {Math.abs(dDay)}일 되었습니다 💕
+            </p>
           </div>
         )}
       </div>
