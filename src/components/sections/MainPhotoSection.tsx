@@ -1,4 +1,3 @@
-import { CiCalendar } from "react-icons/ci";
 import { FaRegCalendarCheck } from "react-icons/fa";
 
 interface MainPhotoSectionProps {

@@ -5,9 +5,6 @@ interface LocationSectionProps {
   address?: string;
   latitude?: number;
   longitude?: number;
-  subway?: string[];
-  bus?: string[];
-  parking?: string[];
 }
 
 export default function LocationSection({
@@ -17,9 +14,6 @@ export default function LocationSection({
   address = "식장 주소",
   latitude = 37.4979,
   longitude = 127.0276,
-  subway = ["지하철 안내 정보"],
-  bus = ["버스 안내 정보"],
-  parking = ["주차 안내 정보"],
 }: LocationSectionProps) {
   // 네이버 지도 URL
   const naverMapUrl = `https://map.naver.com/p/search/${encodeURIComponent(
@@ -134,9 +128,7 @@ export default function LocationSection({
                   <p className="text-sm font-medium text-gray-700 mb-1">
                     양재시민의 숲 역 하차
                   </p>
-                  <p className="text-xs text-gray-600">
-                    신분당선 5번 출구
-                  </p>
+                  <p className="text-xs text-gray-600">신분당선 5번 출구</p>
                 </div>
                 <div className="bg-blue-50 rounded-lg p-3">
                   <p className="text-sm font-medium text-blue-700 mb-1">
@@ -226,7 +218,9 @@ export default function LocationSection({
                     </div>
 
                     <div>
-                      <p className="text-xs text-gray-500 mb-1">일반/직행버스</p>
+                      <p className="text-xs text-gray-500 mb-1">
+                        일반/직행버스
+                      </p>
                       <div className="flex flex-wrap gap-1">
                         <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
                           6
@@ -323,8 +317,9 @@ export default function LocationSection({
                 {/* 주의사항 */}
                 <div className="bg-amber-50 rounded-lg p-3 border border-amber-200">
                   <p className="text-xs text-amber-800 leading-relaxed">
-                    주차 공간은 넉넉히 마련되어 있으나 근처 쇼핑센터로 인해 주차 진입로가 다소 혼잡할 수 있습니다.
-                    여유로운 마음으로 조금 일찍 와주시면 감사하겠습니다.
+                    주차 공간은 넉넉히 마련되어 있으나 근처 쇼핑센터로 인해 주차
+                    진입로가 다소 혼잡할 수 있습니다. 여유로운 마음으로 조금
+                    일찍 와주시면 감사하겠습니다.
                   </p>
                 </div>
               </div>

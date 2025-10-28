@@ -48,11 +48,6 @@ export interface WeddingData {
       mother: AccountInfo;
     };
   };
-  transportation: {
-    subway: string;
-    bus: string;
-    parking: string;
-  };
   map: {
     kakao: {
       url: string;

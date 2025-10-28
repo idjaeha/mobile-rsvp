@@ -113,9 +113,6 @@ function App() {
           longitude={data.wedding.venue.location.longitude}
           mapUrl={data.map.kakao.url}
           mapImageUrl={data.map.kakao.imageUrl}
-          subway={data.transportation.subway}
-          bus={data.transportation.bus}
-          parking={data.transportation.parking}
         />
       </div>
 

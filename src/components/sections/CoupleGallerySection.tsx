@@ -1,4 +1,3 @@
-import { FaCameraRetro } from "react-icons/fa";
 import PhotoGallery from "../PhotoGallery";
 
 interface CoupleGallerySectionProps {
