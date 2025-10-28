@@ -123,20 +123,52 @@ export default function LocationSection({
                 <span className="text-2xl">🚇</span>
                 <h3 className="font-semibold text-gray-800 text-lg">지하철</h3>
               </div>
-              <div className="space-y-3">
-                <div className="bg-rose-50 rounded-lg p-3">
-                  <p className="text-sm font-medium text-gray-700 mb-1">
-                    양재시민의 숲 역 하차
-                  </p>
-                  <p className="text-xs text-gray-600">신분당선 5번 출구</p>
-                </div>
-                <div className="bg-blue-50 rounded-lg p-3">
-                  <p className="text-sm font-medium text-blue-700 mb-1">
-                    셔틀버스 운행
-                  </p>
-                  <p className="text-xs text-gray-600">
-                    5번 출구에서 탑승 (예식 1시간 전부터 10분 간격)
-                  </p>
+              <div className=" p-4">
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 bg-rose-500 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      1
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-gray-800">
+                        양재시민의 숲 역 하차
+                      </p>
+                      <p className="text-xs text-gray-600 mt-1">신분당선</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-center">
+                    <div className="text-rose-400 text-lg">↓</div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 bg-rose-500 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      2
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-gray-800">
+                        5번 출구로 나오기
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-center">
+                    <div className="text-rose-400 text-lg">↓</div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      3
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-blue-700">
+                        셔틀버스 탑승
+                      </p>
+                      <p className="text-xs text-gray-600 mt-1">
+                        예식 1시간 전부터 10분 간격 순환 운행
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -162,7 +194,7 @@ export default function LocationSection({
                 {/* 하이브랜드 정류장 */}
                 <div className="border-l-4 border-green-400 pl-3 py-2">
                   <p className="text-sm font-medium text-gray-700 mb-2">
-                    하이브랜드 정류장 [22384]
+                    하이브랜드 정류장 하차 [22384]
                   </p>
                   <div className="flex flex-wrap gap-1">
                     <span className="inline-block px-2 py-1 bg-green-100 text-green-700 text-xs rounded">
@@ -177,7 +209,7 @@ export default function LocationSection({
                 {/* 양곡 도매시장 정류장 */}
                 <div className="border-l-4 border-blue-400 pl-3 py-2">
                   <p className="text-sm font-medium text-gray-700 mb-2">
-                    양곡 도매시장 정류장 [22299]
+                    양곡 도매시장 정류장 하차 [22299]
                   </p>
 
                   <div className="space-y-2">

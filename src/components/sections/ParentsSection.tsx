@@ -31,12 +31,12 @@ export default function ParentsSection({
               {groomFather} · {groomMother}
             </p>
           </div>
-          {data.letter.images[0] && (
+          {data.letter.images[5] && (
             <div className="mt-6 relative">
               {/* 편지지 배경 */}
-              <div className="bg-white rounded-lg p-6 shadow-2xl transform rotate-1 transition-transform hover:rotate-0 hover:scale-105 duration-300">
+              <div className="">
                 <img
-                  src={data.letter.images[0]}
+                  src={data.letter.images[5]}
                   alt="신랑 부모님 편지"
                   className="w-full h-auto object-contain"
                 />
