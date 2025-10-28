@@ -58,31 +58,17 @@ export default function ParentsSection({
             </p>
             <p className="text-sm text-gray-600">{brideName}의 부모님</p>
             <p className="text-2xl font-serif text-gray-800 tracking-wide">
-              {brideFather} · {brideMother}
+              {brideMother} · {brideFather}
             </p>
           </div>
-          {data.letter.images[1] && (
+          {data.letter.images[4] && (
             <div className="mt-6 relative">
               {/* 편지지 배경 */}
-              <div className="bg-white rounded-lg p-6 shadow-2xl transform -rotate-1 transition-transform hover:rotate-0 hover:scale-105 duration-300">
-                <img
-                  src={data.letter.images[1]}
-                  alt="신부 부모님 편지 1"
-                  className="w-full h-auto object-contain"
-                />
-              </div>
-            </div>
-          )}
-          {data.letter.images[2] && (
-            <div className="mt-4 relative">
-              {/* 편지지 배경 */}
-              <div className="bg-white rounded-lg p-6 shadow-2xl transform rotate-1 transition-transform hover:rotate-0 hover:scale-105 duration-300">
-                <img
-                  src={data.letter.images[2]}
-                  alt="신부 부모님 편지 2"
-                  className="w-full h-auto object-contain"
-                />
-              </div>
+              <img
+                src={data.letter.images[4]}
+                alt="신부 부모님 편지 1"
+                className="w-full h-auto object-contain"
+              />
             </div>
           )}
         </div>
