@@ -18,7 +18,7 @@ export default function ParentsSection({
   brideMother,
 }: ParentsSectionProps) {
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-rose-50 to-pink-50 p-12">
+    <section className="min-h-screen w-full flex flex-col items-center justify-center bg-[#e8a9b6] p-12">
       <div className="text-center space-y-16 max-w-2xl w-full">
         {/* 신랑 부모님 */}
         <div className="space-y-6">
