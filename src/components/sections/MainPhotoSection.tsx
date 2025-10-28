@@ -18,7 +18,7 @@ export default function MainPhotoSection({
     <section
       className="min-h-screen w-full flex flex-col items-center justify-center p-6 relative"
       style={{
-        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5)), url('/images/image5.jpeg')`,
+        backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.5)), url('/images/main/main3.jpeg')`,
         backgroundSize: "auto 100%",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -34,7 +34,7 @@ export default function MainPhotoSection({
         <p className="text-2xl text-gray-900 drop-shadow-lg font-extrabold font-serif">
           {brideName}
         </p>
-        <p className="text-[1rem] drop-shadow-md font-serif mt-10 flex justify-center items-center gap-1">
+        <p className="text-[1rem] drop-shadow-md font-serif mt-10 flex justify-center items-center gap-1.5">
           <FaRegCalendarCheck /> {formattedDate}
         </p>
       </div>

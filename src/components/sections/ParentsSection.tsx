@@ -1,3 +1,5 @@
+import data from "../../data/wedding.json";
+
 interface ParentsSectionProps {
   groomName: string;
   groomFather?: string;
@@ -25,11 +27,20 @@ export default function ParentsSection({
             <p className="text-lg text-gray-800">
               {groomFather} · {groomMother}
             </p>
+            <p>
+              <img src={data.letter.images[0]} />
+            </p>
           </div>
           <div className="border-t border-rose-200 pt-8 space-y-2">
             <p className="text-sm text-gray-500">{brideName}의 부모님</p>
             <p className="text-lg text-gray-800">
               {brideFather} · {brideMother}
+            </p>
+            <p>
+              <img src={data.letter.images[1]} />
+            </p>
+            <p>
+              <img src={data.letter.images[2]} />
             </p>
           </div>
         </div>

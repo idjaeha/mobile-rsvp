@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { FaPause, FaPlay } from "react-icons/fa";
 
 interface BackgroundMusicProps {
   bgmUrl: string;
@@ -61,27 +62,15 @@ export default function BackgroundMusic({ bgmUrl }: BackgroundMusicProps) {
       {/* Floating Music Toggle Button */}
       <button
         onClick={togglePlay}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform duration-200 border-2 border-gray-200"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform duration-200"
         aria-label={isPlaying ? "음악 일시정지" : "음악 재생"}
       >
         {isPlaying ? (
           // Pause Icon
-          <svg
-            className="w-6 h-6 text-gray-700"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
-          </svg>
+          <FaPause />
         ) : (
           // Play Icon
-          <svg
-            className="w-6 h-6 text-gray-700 ml-1"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path d="M8 5v14l11-7z" />
-          </svg>
+          <FaPlay />
         )}
       </button>
     </>

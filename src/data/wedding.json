@@ -4,15 +4,15 @@
       "name": "권동현",
       "fullName": "권동현",
       "phone": "01029473827",
-      "father": "권○○",
-      "mother": "○○○"
+      "father": "권혁진",
+      "mother": "이은정"
     },
     "bride": {
       "name": "최유진",
       "fullName": "최유진",
       "phone": "01029473827",
-      "father": "최○○",
-      "mother": "○○○"
+      "father": "최정규",
+      "mother": "신현경"
     }
   },
   "wedding": {
@@ -20,9 +20,9 @@
     "time": "15:30",
     "dayOfWeek": "토요일",
     "venue": {
-      "name": "식장 이름",
-      "address": "주소 정보",
-      "hall": "층 정보",
+      "name": "라시따시어터",
+      "address": "서울 서초구 매헌로 16 하이브랜드 패션관 1층",
+      "hall": "1층, 단독홀(Grand ballroom)",
       "location": {
         "latitude": 37.4979,
         "longitude": 127.0276
@@ -38,12 +38,12 @@
         "kakaoPayLink": "https://qr.kakaopay.com/Ej86awFY5"
       },
       "father": {
-        "name": "아버지 권○○",
+        "name": "아버지 권혁진",
         "bank": "국민은행",
         "account": "123-456-789012"
       },
       "mother": {
-        "name": "어머니 ○○○",
+        "name": "어머니 이은정",
         "bank": "신한은행",
         "account": "110-123-456789"
       }
@@ -56,21 +56,36 @@
         "kakaoPayLink": "https://qr.kakaopay.com/BRIDE_LINK"
       },
       "father": {
-        "name": "아버지 최○○",
+        "name": "아버지 최정규",
         "bank": "우리은행",
         "account": "1002-123-456789"
       },
       "mother": {
-        "name": "어머니 ○○○",
+        "name": "어머니 신현경",
         "bank": "하나은행",
         "account": "123-910-123456"
       }
     }
   },
   "transportation": {
-    "subway": "지하철 정보",
-    "bus": "버스 정보",
-    "parking": "주차 정보"
+    "subway": [
+      "- 양재시민의 숲 역 하차(신분당선 5번출구)",
+      "셔틀버스 순환 운행 -> 5번출구 (예식 1시간 전부터 10분간격)"
+    ],
+    "bus": [
+      "라시따 A 게이트 이용",
+      "- 하이브랜드 정류장 하차[22384] : (마을버스) 서초08,서초20",
+      "- 양곡 도매시장 정류장 하차[22299] : (간선버스) 441 / (지선버스) 8442 / (광역버스) 9100, 9200, 9201, 9300 / (일반버스) 6, 11-3 / (직행버스) 1006, 3000, 3003, 3030, 3100, 3101, 6501, G9633"
+    ],
+    "parking": [
+      "- 네비게이션 : \"라시따시어터\" 또는 \"하이브랜드\" 입력",
+      "- 주소 검색 : \"매헌로 16\" 또는 \"양재동 215\" 검색",
+      "*3시간 무료주차 가능",
+      "*주차장 안내",
+      "파랑색 유도선 -> 지하 3층 주차장   ####(파랑컬러 넣어주시면 좋을것같아요)",
+      "분홍색 유도선 -> 타워주차장           ####(핑크컬러 넣어주시면 좋을것같아요)",
+      "*주차 공간은 넉넉히 마련되어 있으나 근처 쇼핑센터로 인해 주차 진입로가 다소 혼잡할 수 있습니다. 여유로운 마음으로 조금 일찍 와주시면 감사하겠습니다."
+    ]
   },
   "map": {
     "kakao": {
@@ -78,17 +93,25 @@
       "imageUrl": "https://map2.daum.net/map/mapservice?FORMAT=PNG&SCALE=2.5&MX=509642&MY=1113296&S=0&IW=504&IH=310&LANG=0&COORDSTM=WCONGNAMUL&logo=kakao_logo"
     }
   },
+  "letter": {
+    "images": [
+      "/images/letter/letter1.png",
+      "/images/letter/letter2.png",
+      "/images/letter/letter3.png",
+      "/images/letter/letter4.png"
+    ]
+  },
   "gallery": {
     "images": [
-      "/images/image1.jpeg",
-      "/images/image2.jpeg",
-      "/images/image3.jpeg",
-      "/images/image4.jpeg",
-      "/images/image5.jpeg",
-      "/images/image7.jpeg",
-      "/images/image8.jpeg",
-      "/images/image9.jpeg",
-      "/images/image10.jpeg"
+      "/images/gallery/image1.jpeg",
+      "/images/gallery/image2.jpeg",
+      "/images/gallery/image3.jpeg",
+      "/images/gallery/image4.jpeg",
+      "/images/gallery/image5.jpeg",
+      "/images/gallery/image7.jpeg",
+      "/images/gallery/image8.jpeg",
+      "/images/gallery/image9.jpeg",
+      "/images/gallery/image10.jpeg"
     ]
   },
   "metadata": {

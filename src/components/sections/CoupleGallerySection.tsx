@@ -1,3 +1,4 @@
+import { FaCameraRetro } from "react-icons/fa";
 import PhotoGallery from "../PhotoGallery";
 
 interface CoupleGallerySectionProps {
@@ -16,7 +17,9 @@ export default function CoupleGallerySection({
   return (
     <section className="min-h-screen w-full flex flex-col items-center justify-center bg-white p-6 py-12">
       <div className="text-center space-y-12 max-w-md w-full">
-        <h2 className="text-3xl font-serif text-gray-800">우리의 순간들</h2>
+        <h2 className="text-2xl font-serif text-gray-800 flex items-center justify-center gap-2 font-bold">
+          우리의 순간들
+        </h2>
 
         {/* Photo Gallery */}
         <PhotoGallery images={images} />
