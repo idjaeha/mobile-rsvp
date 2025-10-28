@@ -123,58 +123,211 @@ export default function LocationSection({
 
           {/* 교통 안내 */}
           <div className="space-y-4">
-            <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
-              <div className="flex items-center gap-2">
-                <span className="text-xl">🚇</span>
-                <h3 className="font-medium text-gray-800">지하철</h3>
+            {/* 지하철 안내 */}
+            <div className="bg-white rounded-lg p-5 shadow-sm border border-gray-200">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-2xl">🚇</span>
+                <h3 className="font-semibold text-gray-800 text-lg">지하철</h3>
               </div>
-              <p className="text-sm text-gray-600 pl-7">
-                {"- 양재시민의 숲 역 하차 (신분당선 5번출구)"}
-              </p>
-              <p className="text-sm text-gray-600 pl-7">
-                {"셔틀버스 순환 운행 -> 5번출구 (예식 1시간 전부터 10분간격)"}
-              </p>
+              <div className="space-y-3">
+                <div className="bg-rose-50 rounded-lg p-3">
+                  <p className="text-sm font-medium text-gray-700 mb-1">
+                    양재시민의 숲 역 하차
+                  </p>
+                  <p className="text-xs text-gray-600">
+                    신분당선 5번 출구
+                  </p>
+                </div>
+                <div className="bg-blue-50 rounded-lg p-3">
+                  <p className="text-sm font-medium text-blue-700 mb-1">
+                    셔틀버스 운행
+                  </p>
+                  <p className="text-xs text-gray-600">
+                    5번 출구에서 탑승 (예식 1시간 전부터 10분 간격)
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
-              <div className="flex items-center gap-2">
-                <span className="text-xl">🚌</span>
-                <h3 className="font-medium text-gray-800">버스</h3>
+            {/* 버스 안내 */}
+            <div className="bg-white rounded-lg p-5 shadow-sm border border-gray-200">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-2xl">🚌</span>
+                <h3 className="font-semibold text-gray-800 text-lg">버스</h3>
               </div>
-              <p className="text-sm text-gray-600 pl-7">
-                {"- 하이브랜드 정류장 하차[22384] : (마을버스) 서초08,서초20"}
-              </p>
-              <p className="text-sm text-gray-600 pl-7">
-                {
-                  "- 양곡 도매시장 정류장 하차[22299] : (간선버스) 441 / (지선버스) 8442 / (광역버스) 9100, 9200, 9201, 9300 / (일반버스) 6, 11-3 / (직행버스) 1006, 3000, 3003, 3030, 3100, 3101, 6501, G9633"
-                }
-              </p>
+
+              {/* 중요 안내 */}
+              <div className="mb-4 bg-blue-50 rounded-lg p-3 border border-blue-200">
+                <p className="text-sm font-semibold text-blue-800 mb-1">
+                  📍 버스 이용 시
+                </p>
+                <p className="text-xs text-blue-700">
+                  라시따 A 게이트를 이용해 주세요
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                {/* 하이브랜드 정류장 */}
+                <div className="border-l-4 border-green-400 pl-3 py-2">
+                  <p className="text-sm font-medium text-gray-700 mb-2">
+                    하이브랜드 정류장 [22384]
+                  </p>
+                  <div className="flex flex-wrap gap-1">
+                    <span className="inline-block px-2 py-1 bg-green-100 text-green-700 text-xs rounded">
+                      서초08
+                    </span>
+                    <span className="inline-block px-2 py-1 bg-green-100 text-green-700 text-xs rounded">
+                      서초20
+                    </span>
+                  </div>
+                </div>
+
+                {/* 양곡 도매시장 정류장 */}
+                <div className="border-l-4 border-blue-400 pl-3 py-2">
+                  <p className="text-sm font-medium text-gray-700 mb-2">
+                    양곡 도매시장 정류장 [22299]
+                  </p>
+
+                  <div className="space-y-2">
+                    <div>
+                      <p className="text-xs text-gray-500 mb-1">간선버스</p>
+                      <div className="flex flex-wrap gap-1">
+                        <span className="inline-block px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded">
+                          441
+                        </span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="text-xs text-gray-500 mb-1">지선버스</p>
+                      <div className="flex flex-wrap gap-1">
+                        <span className="inline-block px-2 py-1 bg-green-100 text-green-700 text-xs rounded">
+                          8442
+                        </span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="text-xs text-gray-500 mb-1">광역버스</p>
+                      <div className="flex flex-wrap gap-1">
+                        <span className="inline-block px-2 py-1 bg-red-100 text-red-700 text-xs rounded">
+                          9100
+                        </span>
+                        <span className="inline-block px-2 py-1 bg-red-100 text-red-700 text-xs rounded">
+                          9200
+                        </span>
+                        <span className="inline-block px-2 py-1 bg-red-100 text-red-700 text-xs rounded">
+                          9201
+                        </span>
+                        <span className="inline-block px-2 py-1 bg-red-100 text-red-700 text-xs rounded">
+                          9300
+                        </span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="text-xs text-gray-500 mb-1">일반/직행버스</p>
+                      <div className="flex flex-wrap gap-1">
+                        <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                          6
+                        </span>
+                        <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                          11-3
+                        </span>
+                        <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                          1006
+                        </span>
+                        <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                          3000
+                        </span>
+                        <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                          3003
+                        </span>
+                        <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                          3030
+                        </span>
+                        <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                          3100
+                        </span>
+                        <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                          3101
+                        </span>
+                        <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                          6501
+                        </span>
+                        <span className="inline-block px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">
+                          G9633
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
-              <div className="flex items-center gap-2">
-                <span className="text-xl">🚗</span>
-                <h3 className="font-medium text-gray-800">주차</h3>
+            {/* 주차 안내 */}
+            <div className="bg-white rounded-lg p-5 shadow-sm border border-gray-200">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-2xl">🚗</span>
+                <h3 className="font-semibold text-gray-800 text-lg">주차</h3>
               </div>
-              <p className="text-sm text-gray-600 pl-7">
-                {'- 네비게이션 : "라시따시어터" 또는 "하이브랜드" 입력'}
-              </p>
-              <p className="text-sm text-gray-600 pl-7">
-                {'- 주소 검색 : "매헌로 16" 또는 "양재동 215" 검색'}
-              </p>
-              <p className="text-sm text-gray-600 pl-7">*3시간 무료주차 가능</p>
-              <p className="text-sm text-gray-600 pl-7">*주차장 안내</p>
-              <p className="text-sm text-blue-500 pl-7">
-                {"파랑색 유도선 -> 지하 3층 주차장"}
-              </p>
-              <p className="text-sm text-red-400 pl-7">
-                {"분홍색 유도선 -> 타워주차장"}
-              </p>
-              <p className="text-sm text-gray-600 pl-7">
-                *주차 공간은 넉넉히 마련되어 있으나 근처 쇼핑센터로 인해 주차
-                진입로가 다소 혼잡할 수 있습니다. 여유로운 마음으로 조금 일찍
-                와주시면 감사하겠습니다.
-              </p>
+              <div className="space-y-4">
+                {/* 네비게이션 안내 */}
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <p className="text-sm font-medium text-gray-700 mb-2">
+                    네비게이션 검색
+                  </p>
+                  <p className="text-xs text-gray-600">
+                    "라시따시어터" 또는 "하이브랜드" 입력
+                  </p>
+                </div>
+
+                {/* 주소 안내 */}
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <p className="text-sm font-medium text-gray-700 mb-2">
+                    주소 검색
+                  </p>
+                  <p className="text-xs text-gray-600">
+                    "매헌로 16" 또는 "양재동 215" 검색
+                  </p>
+                </div>
+
+                {/* 무료주차 안내 */}
+                <div className="bg-green-50 rounded-lg p-3 border border-green-200">
+                  <p className="text-sm font-medium text-green-700">
+                    3시간 무료 주차 가능
+                  </p>
+                </div>
+
+                {/* 주차장 안내 */}
+                <div>
+                  <p className="text-sm font-medium text-gray-700 mb-3">
+                    주차장 안내
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2 p-2 bg-blue-50 rounded">
+                      <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                      <p className="text-sm text-gray-700">
+                        파랑색 유도선 → 지하 3층 주차장
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2 p-2 bg-pink-50 rounded">
+                      <div className="w-3 h-3 bg-pink-500 rounded-full"></div>
+                      <p className="text-sm text-gray-700">
+                        분홍색 유도선 → 타워주차장
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 주의사항 */}
+                <div className="bg-amber-50 rounded-lg p-3 border border-amber-200">
+                  <p className="text-xs text-amber-800 leading-relaxed">
+                    주차 공간은 넉넉히 마련되어 있으나 근처 쇼핑센터로 인해 주차 진입로가 다소 혼잡할 수 있습니다.
+                    여유로운 마음으로 조금 일찍 와주시면 감사하겠습니다.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

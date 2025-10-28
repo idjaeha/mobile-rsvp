@@ -18,31 +18,73 @@ export default function ParentsSection({
   brideMother,
 }: ParentsSectionProps) {
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center bg-rose-50 p-6">
-      <div className="text-center space-y-12 max-w-md">
-        <h2 className="text-3xl font-serif text-gray-800">부모님 파트</h2>
-        <div className="space-y-8">
+    <section className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-rose-50 to-pink-50 p-12">
+      <div className="text-center space-y-16 max-w-2xl w-full">
+        {/* 신랑 부모님 */}
+        <div className="space-y-6">
           <div className="space-y-2">
-            <p className="text-sm text-gray-500">{groomName}의 부모님</p>
-            <p className="text-lg text-gray-800">
+            <p className="text-xs tracking-widest text-rose-400 uppercase font-semibold">
+              Groom's Parents
+            </p>
+            <p className="text-sm text-gray-600">{groomName}의 부모님</p>
+            <p className="text-2xl font-serif text-gray-800 tracking-wide">
               {groomFather} · {groomMother}
             </p>
-            <p>
-              <img src={data.letter.images[0]} />
-            </p>
           </div>
-          <div className="border-t border-rose-200 pt-8 space-y-2">
-            <p className="text-sm text-gray-500">{brideName}의 부모님</p>
-            <p className="text-lg text-gray-800">
+          {data.letter.images[0] && (
+            <div className="mt-6 relative">
+              {/* 편지지 배경 */}
+              <div className="bg-white rounded-lg p-6 shadow-2xl transform rotate-1 transition-transform hover:rotate-0 hover:scale-105 duration-300">
+                <img
+                  src={data.letter.images[0]}
+                  alt="신랑 부모님 편지"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* 구분선 */}
+        <div className="flex items-center justify-center">
+          <div className="h-px bg-gradient-to-r from-transparent via-rose-300 to-transparent w-full max-w-xs"></div>
+        </div>
+
+        {/* 신부 부모님 */}
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <p className="text-xs tracking-widest text-rose-400 uppercase font-semibold">
+              Bride's Parents
+            </p>
+            <p className="text-sm text-gray-600">{brideName}의 부모님</p>
+            <p className="text-2xl font-serif text-gray-800 tracking-wide">
               {brideFather} · {brideMother}
             </p>
-            <p>
-              <img src={data.letter.images[1]} />
-            </p>
-            <p>
-              <img src={data.letter.images[2]} />
-            </p>
           </div>
+          {data.letter.images[1] && (
+            <div className="mt-6 relative">
+              {/* 편지지 배경 */}
+              <div className="bg-white rounded-lg p-6 shadow-2xl transform -rotate-1 transition-transform hover:rotate-0 hover:scale-105 duration-300">
+                <img
+                  src={data.letter.images[1]}
+                  alt="신부 부모님 편지 1"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+          )}
+          {data.letter.images[2] && (
+            <div className="mt-4 relative">
+              {/* 편지지 배경 */}
+              <div className="bg-white rounded-lg p-6 shadow-2xl transform rotate-1 transition-transform hover:rotate-0 hover:scale-105 duration-300">
+                <img
+                  src={data.letter.images[2]}
+                  alt="신부 부모님 편지 2"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

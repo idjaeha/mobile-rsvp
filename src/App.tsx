@@ -6,6 +6,7 @@ import ParentsSection from "./components/sections/ParentsSection";
 import CoupleGallerySection from "./components/sections/CoupleGallerySection";
 import CalendarSection from "./components/sections/CalendarSection";
 import LocationSection from "./components/sections/LocationSection";
+import DressCodeSection from "./components/sections/DressCodeSection";
 import GiftSection from "./components/sections/GiftSection";
 import ShareSection from "./components/sections/ShareSection";
 import { initKakao, shareKakao } from "./utils/kakao";
@@ -116,6 +117,10 @@ function App() {
           bus={data.transportation.bus}
           parking={data.transportation.parking}
         />
+      </div>
+
+      <div className="snap-section">
+        <DressCodeSection />
       </div>
 
       <div className="snap-section">
