@@ -1,5 +1,44 @@
 @import "tailwindcss";
 
+:root {
+  /* Color System - Dusty Rose Foundation */
+  --color-rose-primary: #e8a9b6;
+  --color-rose-light: #f4d4dc;
+  --color-rose-dark: #d68997;
+  --color-rose-whisper: #fdf5f7;
+
+  /* Neutrals */
+  --color-cream: #fef9f3;
+  --color-warm-white: #fdfbf7;
+  --color-charcoal: #2d2d2d;
+  --color-gray-soft: #706f6f;
+  --color-gray-light: #e8e6e3;
+
+  /* Accents */
+  --color-gold: #d4af37;
+  --color-gold-light: #e8d4a0;
+
+  /* Typography */
+  --font-display: 'Lora', 'Noto Serif KR', serif;
+  --font-secondary: 'Crimson Pro', 'Noto Serif KR', serif;
+  --font-body: 'Nunito Sans', -apple-system, 'Apple SD Gothic Neo', sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    color: var(--color-charcoal);
+    background: var(--color-warm-white);
+  }
+
+  /* Refined Typography Scale */
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+}
+
 @layer components {
   /* Snap Scroll Container */
   .snap-container {
@@ -8,7 +47,6 @@
     overflow-y: scroll;
     height: 100vh;
     height: 100dvh;
-    /* 스크롤 속도 조절을 위한 추가 속성 */
     overscroll-behavior: none;
   }
 
@@ -20,7 +58,7 @@
     min-height: 100dvh;
   }
 
-  /* Optional: Remove scrollbar for cleaner look */
+  /* Remove scrollbar */
   .snap-container::-webkit-scrollbar {
     display: none;
   }
@@ -28,5 +66,88 @@
   .snap-container {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  /* Elegant Fade-in Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  /* Grain Texture Overlay */
+  .grain-overlay {
+    position: relative;
+  }
+
+  .grain-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* Elegant Button Styles */
+  .btn-elegant {
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-elegant:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(232, 169, 182, 0.25);
+  }
+
+  /* Decorative Divider */
+  .divider-elegant {
+    position: relative;
+    text-align: center;
+  }
+
+  .divider-elegant::before,
+  .divider-elegant::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-rose-primary), transparent);
+  }
+
+  .divider-elegant::before {
+    left: 0;
+  }
+
+  .divider-elegant::after {
+    right: 0;
   }
 }

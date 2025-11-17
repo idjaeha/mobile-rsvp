@@ -38,15 +38,33 @@ export default function LocationSection({
     window.open(urls[type], "_blank");
   };
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center bg-white p-6">
-      <div className="space-y-8 max-w-md w-full">
-        <h2 className="text-3xl font-serif text-gray-800 text-center">
-          교통 안내
-        </h2>
+    <section className="min-h-screen w-full flex flex-col items-center justify-center grain-overlay p-6"
+             style={{ backgroundColor: 'var(--color-warm-white)' }}>
+      <div className="space-y-10 max-w-md w-full">
+        {/* Title */}
+        <div className="text-center space-y-3" style={{ animation: 'fadeInUp 0.8s ease-out both' }}>
+          <h2 className="text-3xl tracking-tight"
+              style={{
+                fontFamily: 'var(--font-display)',
+                color: 'var(--color-charcoal)',
+                fontWeight: 500
+              }}>
+            교통 안내
+          </h2>
+          <div className="flex items-center justify-center">
+            <div className="w-16 h-px" style={{ background: 'linear-gradient(to right, transparent, var(--color-rose-primary), transparent)' }}></div>
+          </div>
+        </div>
 
-        <div className="space-y-6">
+        <div className="space-y-6" style={{ animation: 'fadeInScale 0.8s ease-out 0.2s both' }}>
           {/* 카카오맵 이미지 */}
-          <div className="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200">
+          <div className="overflow-hidden rounded-xl"
+               style={{
+                 backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                 backdropFilter: 'blur(10px)',
+                 border: '1px solid var(--color-rose-light)',
+                 boxShadow: '0 4px 20px rgba(232, 169, 182, 0.1)'
+               }}>
             <a
               href={mapUrl}
               target="_blank"
@@ -60,7 +78,11 @@ export default function LocationSection({
                 style={{ maxHeight: "310px", objectFit: "cover" }}
               />
             </a>
-            <div className="p-4 bg-gray-50 border-t border-gray-200">
+            <div className="p-4 border-t"
+                 style={{
+                   backgroundColor: 'var(--color-rose-whisper)',
+                   borderColor: 'var(--color-rose-light)'
+                 }}>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <img
@@ -74,7 +96,11 @@ export default function LocationSection({
                   href={mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs text-gray-700 hover:text-gray-900 underline"
+                  className="text-xs underline tracking-wide"
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    color: 'var(--color-charcoal)'
+                  }}
                 >
                   지도 크게 보기
                 </a>
@@ -83,31 +109,64 @@ export default function LocationSection({
           </div>
 
           {/* 장소 정보 */}
-          <div className="bg-white rounded-lg p-5 shadow-sm border border-gray-200 space-y-4">
+          <div className="rounded-xl p-5 space-y-5"
+               style={{
+                 backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                 backdropFilter: 'blur(10px)',
+                 border: '1px solid var(--color-rose-light)',
+                 boxShadow: '0 4px 20px rgba(232, 169, 182, 0.1)'
+               }}>
             <div>
-              <h3 className="font-medium text-gray-800 mb-2">{placeName}</h3>
-              <p className="text-sm text-gray-600">{address}</p>
+              <h3 className="mb-2 tracking-tight"
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    color: 'var(--color-charcoal)',
+                    fontWeight: 500,
+                    fontSize: '1.125rem'
+                  }}>
+                {placeName}
+              </h3>
+              <p className="text-sm tracking-wide"
+                 style={{
+                   fontFamily: 'var(--font-body)',
+                   color: 'var(--color-gray-soft)',
+                   fontWeight: 300
+                 }}>
+                {address}
+              </p>
             </div>
 
             {/* 길찾기 버튼 */}
             <div className="flex gap-2">
               <button
                 onClick={() => handleNavigation("naver")}
-                className="flex-1 py-3 bg-green-500 text-white text-sm font-medium rounded-lg hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
+                className="flex-1 py-3 text-sm font-medium rounded-lg transition-all btn-elegant flex items-center justify-center gap-2"
+                style={{
+                  backgroundColor: '#03C75A',
+                  color: 'white'
+                }}
               >
                 <span>N</span>
                 <span>네이버</span>
               </button>
               <button
                 onClick={() => handleNavigation("kakao")}
-                className="flex-1 py-3 bg-yellow-400 text-gray-800 text-sm font-medium rounded-lg hover:bg-yellow-500 transition-colors flex items-center justify-center gap-2"
+                className="flex-1 py-3 text-sm font-medium rounded-lg transition-all btn-elegant flex items-center justify-center gap-2"
+                style={{
+                  backgroundColor: '#FEE500',
+                  color: '#3C1E1E'
+                }}
               >
                 <span>K</span>
                 <span>카카오</span>
               </button>
               <button
                 onClick={() => handleNavigation("tmap")}
-                className="flex-1 py-3 bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center gap-2"
+                className="flex-1 py-3 text-sm font-medium rounded-lg transition-all btn-elegant flex items-center justify-center gap-2"
+                style={{
+                  backgroundColor: '#1E88E5',
+                  color: 'white'
+                }}
               >
                 <span>T</span>
                 <span>티맵</span>
@@ -118,7 +177,13 @@ export default function LocationSection({
           {/* 교통 안내 */}
           <div className="space-y-4">
             {/* 지하철 안내 */}
-            <div className="bg-white rounded-lg p-5 shadow-sm border border-gray-200">
+            <div className="rounded-xl p-5"
+                 style={{
+                   backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                   backdropFilter: 'blur(10px)',
+                   border: '1px solid var(--color-rose-light)',
+                   boxShadow: '0 4px 20px rgba(232, 169, 182, 0.1)'
+                 }}>
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-2xl">🚇</span>
                 <h3 className="font-semibold text-gray-800 text-lg">지하철</h3>
@@ -174,7 +239,13 @@ export default function LocationSection({
             </div>
 
             {/* 버스 안내 */}
-            <div className="bg-white rounded-lg p-5 shadow-sm border border-gray-200">
+            <div className="rounded-xl p-5"
+                 style={{
+                   backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                   backdropFilter: 'blur(10px)',
+                   border: '1px solid var(--color-rose-light)',
+                   boxShadow: '0 4px 20px rgba(232, 169, 182, 0.1)'
+                 }}>
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-2xl">🚌</span>
                 <h3 className="font-semibold text-gray-800 text-lg">버스</h3>
@@ -292,7 +363,13 @@ export default function LocationSection({
             </div>
 
             {/* 주차 안내 */}
-            <div className="bg-white rounded-lg p-5 shadow-sm border border-gray-200">
+            <div className="rounded-xl p-5"
+                 style={{
+                   backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                   backdropFilter: 'blur(10px)',
+                   border: '1px solid var(--color-rose-light)',
+                   boxShadow: '0 4px 20px rgba(232, 169, 182, 0.1)'
+                 }}>
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-2xl">🚗</span>
                 <h3 className="font-semibold text-gray-800 text-lg">주차</h3>

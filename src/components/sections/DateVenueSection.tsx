@@ -46,75 +46,122 @@ export default function DateVenueSection({
   }, []);
 
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-rose-50 to-white p-6">
+    <section className="min-h-screen w-full flex flex-col items-center justify-center grain-overlay p-6"
+             style={{
+               background: 'linear-gradient(to bottom, var(--color-rose-whisper), var(--color-warm-white))'
+             }}>
       <div className="max-w-md w-full">
-        {/* 청첩장 카드 */}
+        {/* Refined Invitation Card */}
         <div
           ref={cardRef}
-          className={`bg-white rounded-lg shadow-2xl p-8 border-2 border-rose-100 relative overflow-hidden transition-all duration-1000 ease-out ${
+          className={`relative overflow-hidden transition-all duration-1000 ease-out ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
           }`}
+          style={{
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            backdropFilter: 'blur(10px)',
+            borderRadius: '12px',
+            padding: '3rem 2rem',
+            border: '1px solid var(--color-rose-light)',
+            boxShadow: '0 20px 60px rgba(232, 169, 182, 0.15)'
+          }}
         >
-          {/* 장식 요소 - 상단 */}
-          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-rose-300 to-transparent"></div>
+          {/* Elegant Corner Ornaments */}
+          <div className="absolute top-6 left-6 w-8 h-8 border-l border-t opacity-30"
+               style={{ borderColor: 'var(--color-rose-primary)' }}></div>
+          <div className="absolute top-6 right-6 w-8 h-8 border-r border-t opacity-30"
+               style={{ borderColor: 'var(--color-rose-primary)' }}></div>
+          <div className="absolute bottom-6 left-6 w-8 h-8 border-l border-b opacity-30"
+               style={{ borderColor: 'var(--color-rose-primary)' }}></div>
+          <div className="absolute bottom-6 right-6 w-8 h-8 border-r border-b opacity-30"
+               style={{ borderColor: 'var(--color-rose-primary)' }}></div>
 
-          {/* 장식 요소 - 코너 */}
-          <div className="absolute top-4 left-4 w-12 h-12 border-l-2 border-t-2 border-rose-200 rounded-tl-lg"></div>
-          <div className="absolute top-4 right-4 w-12 h-12 border-r-2 border-t-2 border-rose-200 rounded-tr-lg"></div>
-          <div className="absolute bottom-4 left-4 w-12 h-12 border-l-2 border-b-2 border-rose-200 rounded-bl-lg"></div>
-          <div className="absolute bottom-4 right-4 w-12 h-12 border-r-2 border-b-2 border-rose-200 rounded-br-lg"></div>
-
-          {/* 콘텐츠 */}
-          <div className="text-center space-y-8 relative z-10 py-4">
-            {/* 제목 장식 */}
-            <div className="flex items-center justify-center gap-3">
-              <div className="w-8 h-px bg-rose-300"></div>
-              <h2 className="text-2xl font-serif text-gray-800 tracking-wider">
-                Wedding Day
-              </h2>
-              <div className="w-8 h-px bg-rose-300"></div>
+          {/* Content */}
+          <div className="text-center space-y-10 relative z-10">
+            {/* Title */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-center gap-4">
+                <div className="w-10 h-px" style={{ background: 'linear-gradient(to right, transparent, var(--color-rose-primary))' }}></div>
+                <span className="text-xs tracking-[0.2em] uppercase"
+                      style={{
+                        fontFamily: 'var(--font-body)',
+                        color: 'var(--color-gray-soft)',
+                        fontWeight: 300
+                      }}>
+                  Wedding Day
+                </span>
+                <div className="w-10 h-px" style={{ background: 'linear-gradient(to left, transparent, var(--color-rose-primary))' }}></div>
+              </div>
             </div>
 
-            {/* 날짜 정보 */}
-            <div className="space-y-4 py-6">
-              <div className="space-y-2">
-                <p className="text-2xl font-serif text-gray-800 tracking-wide">
+            {/* Date Information */}
+            <div className="space-y-5 py-4">
+              <div className="space-y-3">
+                <h2 className="text-3xl tracking-tight"
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      color: 'var(--color-charcoal)',
+                      fontWeight: 500,
+                      letterSpacing: '-0.02em'
+                    }}>
                   {year}년 {month}월 {day}일
+                </h2>
+                <p className="text-base tracking-wide"
+                   style={{
+                     fontFamily: 'var(--font-body)',
+                     color: 'var(--color-gray-soft)',
+                     fontWeight: 400
+                   }}>
+                  {dayOfWeek}
                 </p>
-                <p className="text-lg text-gray-600 font-medium">{dayOfWeek}</p>
-                <p className="text-lg text-rose-500 font-medium">
+                <p className="text-lg font-medium"
+                   style={{ color: 'var(--color-rose-primary)' }}>
                   {period} {displayHour}시 {minute}분
                 </p>
               </div>
 
-              {/* 구분선 */}
-              <div className="flex items-center justify-center gap-2 py-4">
-                <div className="w-2 h-2 rounded-full bg-rose-300"></div>
-                <div className="w-16 h-px bg-rose-200"></div>
-                <div className="w-2 h-2 rounded-full bg-rose-300"></div>
-                <div className="w-16 h-px bg-rose-200"></div>
-                <div className="w-2 h-2 rounded-full bg-rose-300"></div>
+              {/* Decorative Divider */}
+              <div className="flex items-center justify-center gap-3 py-6">
+                <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: 'var(--color-rose-primary)', opacity: 0.4 }}></div>
+                <div className="w-16 h-px" style={{ backgroundColor: 'var(--color-rose-light)' }}></div>
+                <div className="w-2 h-2 rounded-full border" style={{ borderColor: 'var(--color-rose-primary)' }}></div>
+                <div className="w-16 h-px" style={{ backgroundColor: 'var(--color-rose-light)' }}></div>
+                <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: 'var(--color-rose-primary)', opacity: 0.4 }}></div>
               </div>
 
-              {/* 식장 정보 */}
-              <div className="space-y-3 pt-4">
-                <p className="text-xl font-serif text-gray-800 font-semibold">
+              {/* Venue Information */}
+              <div className="space-y-4 pt-2">
+                <h3 className="text-2xl tracking-tight"
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      color: 'var(--color-charcoal)',
+                      fontWeight: 500
+                    }}>
                   {venueName}
-                </p>
+                </h3>
                 {venueHall && (
-                  <p className="text-base text-rose-600 font-medium">
+                  <p className="text-base font-medium"
+                     style={{ color: 'var(--color-rose-dark)' }}>
                     {venueHall}
                   </p>
                 )}
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-sm leading-relaxed px-4"
+                   style={{
+                     fontFamily: 'var(--font-body)',
+                     color: 'var(--color-gray-soft)',
+                     fontWeight: 300
+                   }}>
                   {venueAddress}
                 </p>
               </div>
             </div>
           </div>
 
-          {/* 장식 요소 - 하단 */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-rose-300 to-transparent"></div>
+          {/* Subtle Top & Bottom Accent Lines */}
+          <div className="absolute top-0 left-0 right-0 h-px"
+               style={{ background: 'linear-gradient(to right, transparent, var(--color-rose-primary), transparent)' }}></div>
+          <div className="absolute bottom-0 left-0 right-0 h-px"
+               style={{ background: 'linear-gradient(to right, transparent, var(--color-rose-primary), transparent)' }}></div>
         </div>
       </div>
     </section>

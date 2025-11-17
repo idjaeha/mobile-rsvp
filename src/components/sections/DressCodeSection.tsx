@@ -1,23 +1,55 @@
 export default function DressCodeSection() {
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-white via-rose-50 to-pink-50 p-6">
-      <div className="text-center space-y-8 max-w-md w-full">
-        {/* 아이콘과 제목 */}
-        <div className="space-y-4">
-          <div className="flex justify-center"></div>
-          <h2 className="text-4xl font-serif text-gray-800 tracking-wide">
+    <section className="min-h-screen w-full flex flex-col items-center justify-center grain-overlay p-6"
+             style={{
+               background: 'linear-gradient(135deg, var(--color-warm-white) 0%, var(--color-rose-whisper) 50%, var(--color-rose-light) 100%)'
+             }}>
+      <div className="text-center space-y-12 max-w-md w-full">
+        {/* Title */}
+        <div className="space-y-5" style={{ animation: 'fadeInUp 0.8s ease-out both' }}>
+          <h2 className="text-4xl tracking-tight"
+              style={{
+                fontFamily: 'var(--font-display)',
+                color: 'var(--color-charcoal)',
+                fontWeight: 500,
+                fontStyle: 'italic'
+              }}>
             Dress Code
           </h2>
-          <p className="text-sm text-gray-500 font-light">복장 안내</p>
+          <div className="flex items-center justify-center">
+            <div className="w-16 h-px" style={{ background: 'linear-gradient(to right, transparent, var(--color-rose-primary), transparent)' }}></div>
+          </div>
+          <p className="text-sm tracking-[0.2em] uppercase"
+             style={{
+               fontFamily: 'var(--font-body)',
+               color: 'var(--color-gray-soft)',
+               fontWeight: 300
+             }}>
+            복장 안내
+          </p>
         </div>
 
-        {/* 메시지 카드 */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl">
-          <p className="text-base text-gray-700 leading-relaxed">
+        {/* Message Card */}
+        <div className="rounded-2xl p-10"
+             style={{
+               animation: 'fadeInScale 0.8s ease-out 0.3s both',
+               backgroundColor: 'rgba(255, 255, 255, 0.85)',
+               backdropFilter: 'blur(12px)',
+               border: '1px solid var(--color-rose-light)',
+               boxShadow: '0 20px 60px rgba(232, 169, 182, 0.2)'
+             }}>
+          <p className="text-base leading-relaxed"
+             style={{
+               fontFamily: 'var(--font-body)',
+               color: 'var(--color-charcoal)',
+               fontWeight: 300,
+               lineHeight: '1.8'
+             }}>
             예식 참석 시 화사한 옷차림으로
             <br />
             함께해 주신다면
-            <br />그 날이 한층 더 빛날 것 같습니다.
+            <br />
+            그 날이 한층 더 빛날 것 같습니다.
           </p>
         </div>
       </div>

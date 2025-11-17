@@ -80,13 +80,29 @@ export default function WeddingCalendar({
   return (
     <div className="w-full max-w-md mx-auto space-y-6">
       {/* Calendar */}
-      <div className="bg-white rounded-lg p-6 shadow-sm">
+      <div className="rounded-xl p-6"
+           style={{
+             backgroundColor: 'rgba(255, 255, 255, 0.9)',
+             backdropFilter: 'blur(10px)',
+             border: '1px solid var(--color-rose-light)',
+             boxShadow: '0 4px 20px rgba(232, 169, 182, 0.1)'
+           }}>
         {/* Month and Year */}
         <div className="text-center mb-6">
-          <h3 className="text-2xl font-serif text-gray-800">
+          <h3 className="text-2xl tracking-tight"
+              style={{
+                fontFamily: 'var(--font-display)',
+                color: 'var(--color-charcoal)',
+                fontWeight: 500
+              }}>
             {year}년 {month}월
           </h3>
-          <p className="text-sm text-gray-500 mt-1">
+          <p className="text-sm mt-2 tracking-wider"
+             style={{
+               fontFamily: 'var(--font-body)',
+               color: 'var(--color-gray-soft)',
+               fontWeight: 300
+             }}>
             {monthNames[month - 1]} {year}
           </p>
         </div>
@@ -140,9 +156,19 @@ export default function WeddingCalendar({
 
         {/* Wedding Date Label */}
         <div className="mt-6 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-rose-50 rounded-full">
-            <div className="w-3 h-3 bg-rose-500 rounded-full"></div>
-            <span className="text-sm text-gray-700">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
+               style={{
+                 backgroundColor: 'var(--color-rose-whisper)',
+                 border: '1px solid var(--color-rose-light)'
+               }}>
+            <div className="w-3 h-3 rounded-full"
+                 style={{ backgroundColor: 'var(--color-rose-primary)' }}></div>
+            <span className="text-sm tracking-wide"
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    color: 'var(--color-charcoal)',
+                    fontWeight: 400
+                  }}>
               {year}년 {month}월 {day}일 결혼식
             </span>
           </div>
@@ -150,24 +176,72 @@ export default function WeddingCalendar({
       </div>
 
       {/* D-day Counter */}
-      <div className="bg-white rounded-lg p-6 shadow-sm text-center">
-        <p className="text-gray-600 mb-2">결혼식까지</p>
+      <div className="rounded-xl p-6 text-center"
+           style={{
+             backgroundColor: 'rgba(255, 255, 255, 0.9)',
+             backdropFilter: 'blur(10px)',
+             border: '1px solid var(--color-rose-light)',
+             boxShadow: '0 4px 20px rgba(232, 169, 182, 0.1)'
+           }}>
+        <p className="mb-3 tracking-wide"
+           style={{
+             fontFamily: 'var(--font-body)',
+             color: 'var(--color-gray-soft)',
+             fontWeight: 300
+           }}>
+          결혼식까지
+        </p>
         {dDay > 0 ? (
-          <div className="space-y-1">
-            <p className="text-4xl font-bold text-rose-600">D-{dDay}</p>
-            <p className="text-sm text-gray-500">{dDay}일 남았습니다</p>
+          <div className="space-y-2">
+            <p className="text-5xl font-bold tracking-tight"
+               style={{
+                 fontFamily: 'var(--font-display)',
+                 color: 'var(--color-rose-primary)'
+               }}>
+              D-{dDay}
+            </p>
+            <p className="text-sm tracking-wide"
+               style={{
+                 fontFamily: 'var(--font-body)',
+                 color: 'var(--color-gray-soft)',
+                 fontWeight: 300
+               }}>
+              {dDay}일 남았습니다
+            </p>
           </div>
         ) : dDay === 0 ? (
-          <div className="space-y-1">
-            <p className="text-4xl font-bold text-rose-600">D-Day</p>
-            <p className="text-sm text-gray-500">오늘이 결혼식 날입니다! 💒</p>
+          <div className="space-y-2">
+            <p className="text-5xl font-bold tracking-tight"
+               style={{
+                 fontFamily: 'var(--font-display)',
+                 color: 'var(--color-rose-primary)'
+               }}>
+              D-Day
+            </p>
+            <p className="text-sm tracking-wide"
+               style={{
+                 fontFamily: 'var(--font-body)',
+                 color: 'var(--color-gray-soft)',
+                 fontWeight: 300
+               }}>
+              오늘이 결혼식 날입니다! 💒
+            </p>
           </div>
         ) : (
-          <div className="space-y-1">
-            <p className="text-4xl font-bold text-gray-600">
+          <div className="space-y-2">
+            <p className="text-5xl font-bold tracking-tight"
+               style={{
+                 fontFamily: 'var(--font-display)',
+                 color: 'var(--color-gray-soft)'
+               }}>
               D+{Math.abs(dDay)}
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm tracking-wide"
+               style={{
+                 fontFamily: 'var(--font-body)',
+                 color: 'var(--color-gray-soft)',
+                 fontWeight: 300
+               }}>
               결혼한지 {Math.abs(dDay)}일 되었습니다 💕
             </p>
           </div>

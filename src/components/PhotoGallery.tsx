@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 
 interface PhotoGalleryProps {
   images: string[];
@@ -84,12 +85,24 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
   return (
     <>
       {/* 3x4 Grid Gallery */}
-      <div className="grid grid-cols-3 gap-2 w-full max-w-md mx-auto">
+      <div className="grid grid-cols-3 gap-3 w-full max-w-md mx-auto">
         {images.map((image, index) => (
           <button
             key={index}
             onClick={() => openModal(index)}
-            className="aspect-square overflow-hidden rounded-lg hover:opacity-80 transition-opacity focus:outline-none focus:ring-2 focus:ring-rose-400"
+            className="aspect-square overflow-hidden rounded-xl transition-all focus:outline-none"
+            style={{
+              border: '1px solid var(--color-rose-light)',
+              boxShadow: '0 2px 8px rgba(232, 169, 182, 0.1)'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'scale(1.05)';
+              e.currentTarget.style.boxShadow = '0 8px 20px rgba(232, 169, 182, 0.25)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'scale(1)';
+              e.currentTarget.style.boxShadow = '0 2px 8px rgba(232, 169, 182, 0.1)';
+            }}
           >
             <img
               src={image}
@@ -100,15 +113,23 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
         ))}
       </div>
 
-      {/* Modal Viewer */}
-      {selectedIndex !== null && (
+      {/* Modal Viewer - Rendered via Portal */}
+      {selectedIndex !== null && createPortal(
         <div
           ref={modalRef}
-          className="fixed inset-0 bg-black z-50 flex items-center justify-center p-0 m-0"
+          className="fixed inset-0 bg-black flex items-center justify-center p-0 m-0"
           onClick={closeModal}
           onKeyDown={handleKeyDown}
           tabIndex={0}
-          style={{ height: "100vh", width: "100vw" }}
+          style={{
+            height: "100vh",
+            width: "100vw",
+            zIndex: 9999,
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0
+          }}
         >
           {/* Close Button */}
           <button
@@ -156,7 +177,8 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
             {selectedIndex + 1} / {images.length}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
