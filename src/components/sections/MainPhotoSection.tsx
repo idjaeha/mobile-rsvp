@@ -1,4 +1,4 @@
-import mainPhoto from "../../assets/main/1.png";
+import mainPhoto from "../../assets/main/1.webp";
 
 export default function MainPhotoSection() {
   return (
