@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import BackgroundMusic from "./components/BackgroundMusic";
 import MainPhotoSection from "./components/sections/MainPhotoSection";
+import mainPhoto from "./assets/main/1.webp";
 // import DateVenueSection from "./components/sections/DateVenueSection"; // 임시 비활성화
 import ParentsSection from "./components/sections/ParentsSection";
 import CoupleLetterSection from "./components/sections/CoupleLetterSection";
@@ -17,9 +18,16 @@ import type { WeddingData } from "./types/wedding";
 function App() {
   const data = weddingData as WeddingData;
 
-  // Initialize Kakao SDK on mount
+  // Initialize Kakao SDK on mount + Preload first image
   useEffect(() => {
     initKakao();
+
+    // Preload main photo for faster first paint
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = mainPhoto;
+    document.head.appendChild(link);
   }, []);
 
   // Event Handlers
