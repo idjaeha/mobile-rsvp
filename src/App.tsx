@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import BackgroundMusic from "./components/BackgroundMusic";
 import MainPhotoSection from "./components/sections/MainPhotoSection";
-import DateVenueSection from "./components/sections/DateVenueSection";
+// import DateVenueSection from "./components/sections/DateVenueSection"; // 임시 비활성화
 import ParentsSection from "./components/sections/ParentsSection";
+import CoupleLetterSection from "./components/sections/CoupleLetterSection";
 import CoupleGallerySection from "./components/sections/CoupleGallerySection";
 import CalendarSection from "./components/sections/CalendarSection";
 import LocationSection from "./components/sections/LocationSection";
@@ -62,34 +63,24 @@ function App() {
     <div className="snap-container">
       <BackgroundMusic bgmUrl={data.metadata.bgmUrl} />
 
+      {/* 1. 메인 사진 (1.png) */}
       <div className="snap-section">
-        <MainPhotoSection
-          groomName={data.couple.groom.name}
-          brideName={data.couple.bride.name}
-          date={data.wedding.date}
-        />
+        <MainPhotoSection />
       </div>
 
+      {/* 2. 부모님 편지 (2.png) */}
       <div className="snap-section">
-        <DateVenueSection
-          date={data.wedding.date}
-          time={data.wedding.time}
-          dayOfWeek={data.wedding.dayOfWeek}
-          venueName={data.wedding.venue.name}
-          venueAddress={data.wedding.venue.address}
-          venueHall={data.wedding.venue.hall}
-        />
+        <ParentsSection />
       </div>
 
+      {/* 3. 서로에 대한 편지 (3.png) */}
       <div className="snap-section">
-        <ParentsSection
-          groomName={data.couple.groom.name}
-          groomFather={data.couple.groom.father}
-          groomMother={data.couple.groom.mother}
-          brideName={data.couple.bride.name}
-          brideFather={data.couple.bride.father}
-          brideMother={data.couple.bride.mother}
-        />
+        <CoupleLetterSection />
+      </div>
+
+      {/* 4. 웨딩 날짜 (4.png) */}
+      <div className="snap-section">
+        <CalendarSection />
       </div>
 
       <div className="snap-section">
@@ -99,10 +90,6 @@ function App() {
           onCall={handleCall}
           images={data.gallery.images}
         />
-      </div>
-
-      <div className="snap-section">
-        <CalendarSection date={data.wedding.date} />
       </div>
 
       <div className="snap-section">

@@ -8,8 +8,7 @@ export default function ShareSection({
   onCopyLink,
 }: ShareSectionProps) {
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center grain-overlay p-6"
-             style={{ backgroundColor: 'var(--color-warm-white)' }}>
+    <section className="min-h-screen w-full flex flex-col items-center justify-center grain-overlay p-6">
       <div className="space-y-12 max-w-md w-full">
         {/* Title */}
         <div className="text-center space-y-3" style={{ animation: 'fadeInUp 0.8s ease-out both' }}>

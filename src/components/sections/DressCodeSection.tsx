@@ -1,9 +1,6 @@
 export default function DressCodeSection() {
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center grain-overlay p-6"
-             style={{
-               background: 'linear-gradient(135deg, var(--color-warm-white) 0%, var(--color-rose-whisper) 50%, var(--color-rose-light) 100%)'
-             }}>
+    <section className="min-h-screen w-full flex flex-col items-center justify-center grain-overlay p-6">
       <div className="text-center space-y-12 max-w-md w-full">
         {/* Title */}
         <div className="space-y-5" style={{ animation: 'fadeInUp 0.8s ease-out both' }}>

@@ -116,10 +116,7 @@ export default function GiftSection({
   );
 
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center grain-overlay p-6"
-             style={{
-               background: 'linear-gradient(to bottom, var(--color-warm-white), var(--color-rose-whisper))'
-             }}>
+    <section className="min-h-screen w-full flex flex-col items-center justify-center grain-overlay p-6">
       <div className="space-y-10 max-w-md w-full">
         {/* Title */}
         <div className="text-center space-y-3" style={{ animation: 'fadeInUp 0.8s ease-out both' }}>

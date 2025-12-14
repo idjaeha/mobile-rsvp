@@ -14,8 +14,7 @@ export default function CoupleGallerySection({
   images,
 }: CoupleGallerySectionProps) {
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center grain-overlay p-6 py-12"
-             style={{ backgroundColor: 'var(--color-warm-white)' }}>
+    <section className="min-h-screen w-full flex flex-col items-center justify-center grain-overlay p-6 py-12">
       <div className="text-center space-y-12 max-w-md w-full">
         {/* Title */}
         <div className="space-y-3" style={{ animation: 'fadeInUp 0.8s ease-out both' }}>
