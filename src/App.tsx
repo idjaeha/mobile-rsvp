@@ -15,6 +15,7 @@ import { initKakao, shareKakao } from "./utils/kakao";
 import weddingData from "./data/wedding.json";
 import type { WeddingData } from "./types/wedding";
 import DateVenueSection from "./components/sections/DateVenueSection";
+import CoupleContactSection from "./components/sections/CoupleContactSection";
 
 function App() {
   const data = weddingData as WeddingData;
@@ -85,16 +86,19 @@ function App() {
       </div>
 
       <div className="snap-section">
-        <CoupleGallerySection
-          groomPhone={data.couple.groom.phone}
-          bridePhone={data.couple.bride.phone}
-          onCall={handleCall}
-          images={data.gallery.images}
-        />
+        <CoupleGallerySection images={data.gallery.images} />
       </div>
 
       <div className="snap-section">
         <CoupleLetterSection />
+      </div>
+
+      <div className="snap-section">
+        <CoupleContactSection
+          groomPhone={data.couple.groom.phone}
+          bridePhone={data.couple.bride.phone}
+          onCall={handleCall}
+        />
       </div>
 
       <div className="snap-section">

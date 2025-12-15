@@ -1,5 +1,53 @@
 @import "tailwindcss";
 
+/* 경기천년 폰트 - 로컬 폰트 */
+/* 경기천년 바탕체 (본문용) */
+@font-face {
+  font-family: "Gyeonggi Cheonnyeon Batang";
+  src: local("경기천년바탕OTF"),
+    url("/fonts/GyeonggiCheonnyeonBatang-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gyeonggi Cheonnyeon Batang";
+  src: local("경기천년바탕OTF Bold"),
+    url("/fonts/GyeonggiCheonnyeonBatang-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 경기천년 제목체 (제목용) */
+@font-face {
+  font-family: "Gyeonggi Cheonnyeon Jemok";
+  src: local("경기천년제목OTF Light"),
+    url("/fonts/GyeonggiCheonnyeonJemok-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gyeonggi Cheonnyeon Jemok";
+  src: local("경기천년제목OTF Medium"),
+    url("/fonts/GyeonggiCheonnyeonJemok-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gyeonggi Cheonnyeon Jemok";
+  src: local("경기천년제목OTF Bold"),
+    url("/fonts/GyeonggiCheonnyeonJemok-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Color System - Dusty Rose Foundation */
   --color-rose-primary: #e8a9b6;
@@ -19,16 +67,17 @@
   --color-gold-light: #e8d4a0;
 
   /* Typography */
-  --font-display: "Lora", "Noto Serif KR", serif;
-  --font-secondary: "Crimson Pro", "Noto Serif KR", serif;
-  --font-body: "Nunito Sans", -apple-system, "Apple SD Gothic Neo", sans-serif;
+  --font-display: "Gyeonggi Cheonnyeon Jemok", "Noto Serif KR", serif;
+  --font-secondary: "Gyeonggi Cheonnyeon Jemok", "Noto Serif KR", serif;
+  --font-body: "Gyeonggi Cheonnyeon Batang", -apple-system,
+    "Apple SD Gothic Neo", sans-serif;
 }
 
 @layer base {
   body {
     font-family: var(--font-body);
     color: var(--color-charcoal);
-    background: var(--color-warm-white);
+    background: white;
   }
 
   /* Refined Typography Scale */
