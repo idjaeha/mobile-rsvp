@@ -14,6 +14,7 @@ import ShareSection from "./components/sections/ShareSection";
 import { initKakao, shareKakao } from "./utils/kakao";
 import weddingData from "./data/wedding.json";
 import type { WeddingData } from "./types/wedding";
+import DateVenueSection from "./components/sections/DateVenueSection";
 
 function App() {
   const data = weddingData as WeddingData;
@@ -71,24 +72,16 @@ function App() {
     <div className="snap-container">
       <BackgroundMusic bgmUrl={data.metadata.bgmUrl} />
 
-      {/* 1. 메인 사진 (1.png) */}
       <div className="snap-section">
         <MainPhotoSection />
       </div>
 
-      {/* 2. 부모님 편지 (2.png) */}
+      <div className="snap-section">
+        <DateVenueSection />
+      </div>
+
       <div className="snap-section">
         <ParentsSection />
-      </div>
-
-      {/* 3. 서로에 대한 편지 (3.png) */}
-      <div className="snap-section">
-        <CoupleLetterSection />
-      </div>
-
-      {/* 4. 웨딩 날짜 (4.png) */}
-      <div className="snap-section">
-        <CalendarSection />
       </div>
 
       <div className="snap-section">
@@ -98,6 +91,14 @@ function App() {
           onCall={handleCall}
           images={data.gallery.images}
         />
+      </div>
+
+      <div className="snap-section">
+        <CoupleLetterSection />
+      </div>
+
+      <div className="snap-section">
+        <CalendarSection />
       </div>
 
       <div className="snap-section">

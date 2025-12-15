@@ -1,6 +1,6 @@
 import ProgressiveImage from "../ProgressiveImage";
-import weddingDateLqip from "../../assets/main/4-lqip.webp";
-import weddingDateImage from "../../assets/main/4.webp";
+import weddingDateLqip from "../../assets/main/5-lqip.webp";
+import weddingDateImage from "../../assets/main/5.webp";
 
 export default function CalendarSection() {
   return (

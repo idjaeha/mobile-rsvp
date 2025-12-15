@@ -1,6 +1,6 @@
 import ProgressiveImage from "../ProgressiveImage";
-import coupleLetterLqip from "../../assets/main/3-lqip.webp";
-import coupleLetterImage from "../../assets/main/3.webp";
+import coupleLetterLqip from "../../assets/main/4-lqip.webp";
+import coupleLetterImage from "../../assets/main/4.webp";
 
 export default function CoupleLetterSection() {
   return (

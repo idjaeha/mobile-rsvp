@@ -1,6 +1,6 @@
 import ProgressiveImage from "../ProgressiveImage";
-import parentsLetterLqip from "../../assets/main/2-lqip.webp";
-import parentsLetterImage from "../../assets/main/2.webp";
+import parentsLetterLqip from "../../assets/main/3-lqip.webp";
+import parentsLetterImage from "../../assets/main/3.webp";
 
 export default function ParentsSection() {
   return (

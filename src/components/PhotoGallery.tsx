@@ -91,17 +91,15 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
             key={index}
             onClick={() => openModal(index)}
             className="aspect-square overflow-hidden rounded-xl transition-all focus:outline-none"
-            style={{
-              border: '1px solid var(--color-rose-light)',
-              boxShadow: '0 2px 8px rgba(232, 169, 182, 0.1)'
-            }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.transform = 'scale(1.05)';
-              e.currentTarget.style.boxShadow = '0 8px 20px rgba(232, 169, 182, 0.25)';
+              e.currentTarget.style.transform = "scale(1.05)";
+              e.currentTarget.style.boxShadow =
+                "0 8px 20px rgba(232, 169, 182, 0.25)";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.transform = 'scale(1)';
-              e.currentTarget.style.boxShadow = '0 2px 8px rgba(232, 169, 182, 0.1)';
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.boxShadow =
+                "0 2px 8px rgba(232, 169, 182, 0.1)";
             }}
           >
             <img
@@ -114,72 +112,73 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
       </div>
 
       {/* Modal Viewer - Rendered via Portal */}
-      {selectedIndex !== null && createPortal(
-        <div
-          ref={modalRef}
-          className="fixed inset-0 bg-black flex items-center justify-center p-0 m-0"
-          onClick={closeModal}
-          onKeyDown={handleKeyDown}
-          tabIndex={0}
-          style={{
-            height: "100vh",
-            width: "100vw",
-            zIndex: 9999,
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0
-          }}
-        >
-          {/* Close Button */}
-          <button
-            onClick={closeModal}
-            className="absolute top-4 right-4 text-white text-4xl font-light hover:text-gray-300 transition-colors z-10"
-            aria-label="Close"
-          >
-            ×
-          </button>
-
-          {/* Previous Button */}
-          <button
-            onClick={goToPrevious}
-            className="absolute left-2 top-1/2 -translate-y-1/2 text-white text-5xl font-light hover:text-gray-300 transition-colors z-10 p-2"
-            aria-label="Previous photo"
-          >
-            ‹
-          </button>
-
-          {/* Image */}
+      {selectedIndex !== null &&
+        createPortal(
           <div
-            className="w-full h-full flex items-center justify-center px-16 py-20"
-            onClick={(e) => e.stopPropagation()}
-            onTouchStart={onTouchStart}
-            onTouchMove={onTouchMove}
-            onTouchEnd={onTouchEnd}
+            ref={modalRef}
+            className="fixed inset-0 bg-black flex items-center justify-center p-0 m-0"
+            onClick={closeModal}
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
+            style={{
+              height: "100vh",
+              width: "100vw",
+              zIndex: 9999,
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+            }}
           >
-            <img
-              src={images[selectedIndex]}
-              alt={`Wedding photo ${selectedIndex + 1}`}
-              className="max-w-full max-h-full object-contain"
-            />
-          </div>
+            {/* Close Button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 text-white text-4xl font-light hover:text-gray-300 transition-colors z-10"
+              aria-label="Close"
+            >
+              ×
+            </button>
 
-          {/* Next Button */}
-          <button
-            onClick={goToNext}
-            className="absolute right-2 top-1/2 -translate-y-1/2 text-white text-5xl font-light hover:text-gray-300 transition-colors z-10 p-2"
-            aria-label="Next photo"
-          >
-            ›
-          </button>
+            {/* Previous Button */}
+            <button
+              onClick={goToPrevious}
+              className="absolute left-2 top-1/2 -translate-y-1/2 text-white text-5xl font-light hover:text-gray-300 transition-colors z-10 p-2"
+              aria-label="Previous photo"
+            >
+              ‹
+            </button>
 
-          {/* Photo Counter */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
-            {selectedIndex + 1} / {images.length}
-          </div>
-        </div>,
-        document.body
-      )}
+            {/* Image */}
+            <div
+              className="w-full h-full flex items-center justify-center px-16 py-20"
+              onClick={(e) => e.stopPropagation()}
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
+              <img
+                src={images[selectedIndex]}
+                alt={`Wedding photo ${selectedIndex + 1}`}
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
+
+            {/* Next Button */}
+            <button
+              onClick={goToNext}
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-white text-5xl font-light hover:text-gray-300 transition-colors z-10 p-2"
+              aria-label="Next photo"
+            >
+              ›
+            </button>
+
+            {/* Photo Counter */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
+              {selectedIndex + 1} / {images.length}
+            </div>
+          </div>,
+          document.body
+        )}
     </>
   );
 }
