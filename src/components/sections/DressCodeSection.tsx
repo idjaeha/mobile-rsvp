@@ -13,7 +13,6 @@ export default function DressCodeSection() {
               fontFamily: "var(--font-display)",
               color: "var(--color-charcoal)",
               fontWeight: 500,
-              fontStyle: "italic",
             }}
           >
             Dress Code
