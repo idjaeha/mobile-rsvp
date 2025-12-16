@@ -90,7 +90,7 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
           <button
             key={index}
             onClick={() => openModal(index)}
-            className="aspect-square overflow-hidden rounded-xl transition-all focus:outline-none"
+            className="aspect-square overflow-hidden transition-all focus:outline-none"
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "scale(1.05)";
               e.currentTarget.style.boxShadow =
