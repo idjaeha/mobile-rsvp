@@ -19,7 +19,7 @@ export default function CoupleContactSection({
             <h3
               className="text-xl tracking-tight"
               style={{
-                fontFamily: "var(--font-body)",
+                fontFamily: "var(--font-display)",
                 color: "var(--color-charcoal)",
                 fontWeight: 500,
               }}
