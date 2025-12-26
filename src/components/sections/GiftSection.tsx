@@ -275,31 +275,6 @@ export default function GiftSection({
                 style={{ borderColor: "var(--color-rose-light)" }}
               >
                 <AccountCard account={brideAccounts.bride} label="신부" />
-                <div
-                  className="border-t pt-5"
-                  style={{ borderColor: "var(--color-rose-light)" }}
-                >
-                  <p
-                    className="text-xs tracking-wider mb-4"
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      color: "var(--color-gray-soft)",
-                      fontWeight: 300,
-                    }}
-                  >
-                    혼주 계좌
-                  </p>
-                  <div className="space-y-4">
-                    <AccountCard
-                      account={brideAccounts.father}
-                      label="신부 아버지"
-                    />
-                    <AccountCard
-                      account={brideAccounts.mother}
-                      label="신부 어머니"
-                    />
-                  </div>
-                </div>
               </div>
             )}
           </div>

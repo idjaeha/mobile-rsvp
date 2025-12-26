@@ -3,14 +3,14 @@
     "groom": {
       "name": "권동현",
       "fullName": "권동현",
-      "phone": "01029473827",
+      "phone": "01077334697",
       "father": "권혁진",
       "mother": "이은정"
     },
     "bride": {
       "name": "최유진",
       "fullName": "최유진",
-      "phone": "01029473827",
+      "phone": "01097613412",
       "father": "최정규",
       "mother": "신현경"
     }
@@ -54,16 +54,6 @@
         "bank": "카카오뱅크",
         "account": "3333-09-8765432",
         "kakaoPayLink": "https://qr.kakaopay.com/Ej7oeI4rG"
-      },
-      "father": {
-        "name": "아버지 최정규",
-        "bank": "우리은행",
-        "account": "1002-123-456789"
-      },
-      "mother": {
-        "name": "어머니 신현경",
-        "bank": "하나은행",
-        "account": "123-910-123456"
       }
     }
   },
