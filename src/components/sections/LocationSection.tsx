@@ -1,6 +1,40 @@
+import { useEffect, useRef, useState } from "react";
+
+declare global {
+  interface Window {
+    kakao: {
+      maps: {
+        load: (callback: () => void) => void;
+        Map: new (
+          container: HTMLElement,
+          options: { center: unknown; level: number }
+        ) => KakaoMap;
+        LatLng: new (lat: number, lng: number) => unknown;
+        Marker: new (options: {
+          map: KakaoMap;
+          position: unknown;
+        }) => KakaoMarker;
+        event: {
+          addListener: (
+            target: unknown,
+            type: string,
+            handler: () => void
+          ) => void;
+        };
+      };
+    };
+  }
+}
+
+interface KakaoMap {
+  setCenter: (latlng: unknown) => void;
+}
+
+interface KakaoMarker {
+  setMap: (map: KakaoMap | null) => void;
+}
+
 interface LocationSectionProps {
-  mapUrl?: string;
-  mapImageUrl?: string;
   placeName?: string;
   address?: string;
   latitude?: number;
@@ -8,20 +42,94 @@ interface LocationSectionProps {
 }
 
 export default function LocationSection({
-  mapUrl = "https://map.kakao.com/?urlX=509642&urlY=1113296&urlLevel=3&map_type=TYPE_MAP&map_hybrid=false",
-  mapImageUrl = "https://map2.daum.net/map/mapservice?FORMAT=PNG&SCALE=2.5&MX=509642&MY=1113296&S=0&IW=504&IH=310&LANG=0&COORDSTM=WCONGNAMUL&logo=kakao_logo",
-  placeName = "식장 이름",
-  address = "식장 주소",
-  latitude = 37.4979,
-  longitude = 127.0276,
+  placeName = "라시따시어터",
+  address = "서울 서초구 매헌로 16 하이브랜드 패션관 1층",
+  latitude = 37.4630,
+  longitude = 127.0370,
 }: LocationSectionProps) {
+  const mapContainerRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<KakaoMap | null>(null);
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
+
+  // 카카오맵 SDK 동적 로드
+  useEffect(() => {
+    const KAKAO_API_KEY = import.meta.env.VITE_KAKAO_API_KEY;
+
+    if (!KAKAO_API_KEY) {
+      console.error("카카오맵 API 키가 설정되지 않았습니다.");
+      return;
+    }
+
+    // 이미 스크립트가 로드되어 있는지 확인
+    if (window.kakao && window.kakao.maps) {
+      setIsMapLoaded(true);
+      return;
+    }
+
+    // 스크립트가 이미 추가되어 있는지 확인
+    const existingScript = document.querySelector(
+      'script[src*="dapi.kakao.com/v2/maps"]'
+    );
+    if (existingScript) {
+      existingScript.addEventListener("load", () => setIsMapLoaded(true));
+      return;
+    }
+
+    // 동적으로 스크립트 로드
+    const script = document.createElement("script");
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${KAKAO_API_KEY}&autoload=false`;
+    script.async = true;
+    script.onload = () => setIsMapLoaded(true);
+    script.onerror = () => console.error("카카오맵 SDK 로드 실패");
+    document.head.appendChild(script);
+  }, []);
+
+  // 지도 초기화
+  useEffect(() => {
+    if (!isMapLoaded || !window.kakao || !window.kakao.maps) return;
+
+    window.kakao.maps.load(() => {
+      if (!mapContainerRef.current) return;
+
+      const options = {
+        center: new window.kakao.maps.LatLng(latitude, longitude),
+        level: 3,
+      };
+
+      const map = new window.kakao.maps.Map(mapContainerRef.current, options);
+      mapRef.current = map;
+
+      const markerPosition = new window.kakao.maps.LatLng(latitude, longitude);
+      const marker = new window.kakao.maps.Marker({
+        map: map,
+        position: markerPosition,
+      });
+
+      // 마커 클릭 시 카카오맵으로 이동
+      window.kakao.maps.event.addListener(marker, "click", () => {
+        window.open(
+          `https://map.kakao.com/link/map/${encodeURIComponent(placeName)},${latitude},${longitude}`,
+          "_blank"
+        );
+      });
+
+      // 지도 클릭 시에도 카카오맵으로 이동
+      window.kakao.maps.event.addListener(map, "click", () => {
+        window.open(
+          `https://map.kakao.com/link/map/${encodeURIComponent(placeName)},${latitude},${longitude}`,
+          "_blank"
+        );
+      });
+    });
+  }, [isMapLoaded, latitude, longitude, placeName]);
+
   // 네이버 지도 URL
   const naverMapUrl = `https://map.naver.com/p/search/${encodeURIComponent(
     placeName
   )}?c=${longitude},${latitude},15,0,0,0,dh`;
 
-  // 카카오맵 URL (기본 제공된 것 사용)
-  const kakaoMapUrl = mapUrl;
+  // 카카오맵 URL
+  const kakaoMapUrl = `https://map.kakao.com/link/map/${encodeURIComponent(placeName)},${latitude},${longitude}`;
 
   // 티맵 URL
   const tmapUrl = `tmap://route?goalname=${encodeURIComponent(
@@ -64,7 +172,7 @@ export default function LocationSection({
         </div>
 
         <div className="space-y-6">
-          {/* 카카오맵 이미지 */}
+          {/* 카카오맵 */}
           <div
             className="overflow-hidden rounded-xl"
             style={{
@@ -74,19 +182,11 @@ export default function LocationSection({
               boxShadow: "0 4px 20px rgba(232, 169, 182, 0.1)",
             }}
           >
-            <a
-              href={mapUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block"
-            >
-              <img
-                src={mapImageUrl}
-                alt="카카오맵 위치"
-                className="w-full h-auto"
-                style={{ maxHeight: "310px", objectFit: "cover" }}
-              />
-            </a>
+            <div
+              ref={mapContainerRef}
+              className="w-full cursor-pointer"
+              style={{ height: "280px" }}
+            />
             <div
               className="p-4 border-t"
               style={{
@@ -104,7 +204,7 @@ export default function LocationSection({
                   />
                 </div>
                 <a
-                  href={mapUrl}
+                  href={kakaoMapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs underline tracking-wide"

@@ -24,8 +24,8 @@
       "address": "서울 서초구 매헌로 16 하이브랜드 패션관 1층",
       "hall": "1층, 단독홀(Grand ballroom)",
       "location": {
-        "latitude": 37.4979,
-        "longitude": 127.0276
+        "latitude": 37.463,
+        "longitude": 127.037
       }
     }
   },
@@ -54,6 +54,16 @@
         "bank": "카카오뱅크",
         "account": "3333-09-8765432",
         "kakaoPayLink": "https://qr.kakaopay.com/Ej7oeI4rG"
+      },
+      "father": {
+        "name": "",
+        "bank": "",
+        "account": ""
+      },
+      "mother": {
+        "name": "",
+        "bank": "",
+        "account": ""
       }
     }
   },

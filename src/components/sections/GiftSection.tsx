@@ -10,13 +10,13 @@ interface AccountInfo {
 interface GiftSectionProps {
   groomAccounts: {
     groom: AccountInfo;
-    father: AccountInfo;
-    mother: AccountInfo;
+    father?: AccountInfo;
+    mother?: AccountInfo;
   };
   brideAccounts: {
     bride: AccountInfo;
-    father: AccountInfo;
-    mother: AccountInfo;
+    father?: AccountInfo;
+    mother?: AccountInfo;
   };
 }
 
@@ -198,31 +198,37 @@ export default function GiftSection({
                 style={{ borderColor: "var(--color-rose-light)" }}
               >
                 <AccountCard account={groomAccounts.groom} label="신랑" />
-                <div
-                  className="border-t pt-5"
-                  style={{ borderColor: "var(--color-rose-light)" }}
-                >
-                  <p
-                    className="text-xs tracking-wider mb-4"
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      color: "var(--color-gray-soft)",
-                      fontWeight: 300,
-                    }}
+                {(groomAccounts.father || groomAccounts.mother) && (
+                  <div
+                    className="border-t pt-5"
+                    style={{ borderColor: "var(--color-rose-light)" }}
                   >
-                    혼주 계좌
-                  </p>
-                  <div className="space-y-4">
-                    <AccountCard
-                      account={groomAccounts.father}
-                      label="신랑 아버지"
-                    />
-                    <AccountCard
-                      account={groomAccounts.mother}
-                      label="신랑 어머니"
-                    />
+                    <p
+                      className="text-xs tracking-wider mb-4"
+                      style={{
+                        fontFamily: "var(--font-body)",
+                        color: "var(--color-gray-soft)",
+                        fontWeight: 300,
+                      }}
+                    >
+                      혼주 계좌
+                    </p>
+                    <div className="space-y-4">
+                      {groomAccounts.father && (
+                        <AccountCard
+                          account={groomAccounts.father}
+                          label="신랑 아버지"
+                        />
+                      )}
+                      {groomAccounts.mother && (
+                        <AccountCard
+                          account={groomAccounts.mother}
+                          label="신랑 어머니"
+                        />
+                      )}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             )}
           </div>

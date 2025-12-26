@@ -39,20 +39,23 @@ export interface WeddingData {
   accounts: {
     groom: {
       groom: AccountInfo;
-      father: AccountInfo;
-      mother: AccountInfo;
+      father?: AccountInfo;
+      mother?: AccountInfo;
     };
     bride: {
       bride: AccountInfo;
-      father: AccountInfo;
-      mother: AccountInfo;
+      father?: AccountInfo;
+      mother?: AccountInfo;
     };
   };
   map: {
     kakao: {
       url: string;
-      imageUrl: string;
+      imageUrl?: string;
     };
+  };
+  letter?: {
+    images: string[];
   };
   gallery: {
     images: string[];

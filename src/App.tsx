@@ -111,8 +111,6 @@ function App() {
           address={data.wedding.venue.address}
           latitude={data.wedding.venue.location.latitude}
           longitude={data.wedding.venue.location.longitude}
-          mapUrl={data.map.kakao.url}
-          mapImageUrl={data.map.kakao.imageUrl}
         />
       </div>
 
