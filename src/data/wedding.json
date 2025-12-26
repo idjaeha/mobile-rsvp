@@ -59,7 +59,7 @@
   },
   "map": {
     "kakao": {
-      "url": "https://map.kakao.com/?urlX=509642&urlY=1113296&urlLevel=3",
+      "url": "https://map.kakao.com/link/search/라시따시어터",
       "imageUrl": "https://map2.daum.net/map/mapservice?FORMAT=PNG&SCALE=2.5&MX=509642&MY=1113296&S=0&IW=504&IH=310&LANG=0&COORDSTM=WCONGNAMUL&logo=kakao_logo"
     }
   },
