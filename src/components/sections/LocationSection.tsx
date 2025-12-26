@@ -44,8 +44,8 @@ interface LocationSectionProps {
 export default function LocationSection({
   placeName = "라시따시어터",
   address = "서울 서초구 매헌로 16 하이브랜드 패션관 1층",
-  latitude = 37.4630,
-  longitude = 127.0370,
+  latitude = 37.4629528,
+  longitude = 127.0369582,
 }: LocationSectionProps) {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<KakaoMap | null>(null);
