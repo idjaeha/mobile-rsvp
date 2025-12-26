@@ -1,6 +1,6 @@
 export default function DressCodeSection() {
   return (
-    <section className="pt-60 pb-60 w-full flex flex-col items-center justify-center p-6">
+    <section className="pt-30 pb-30 w-full flex flex-col items-center justify-center p-6">
       <div className="text-center space-y-12 max-w-md w-full">
         {/* Title */}
         <div className="space-y-5">
