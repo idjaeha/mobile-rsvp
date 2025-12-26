@@ -3,12 +3,9 @@ export default function DressCodeSection() {
     <section className="pt-60 pb-60 w-full flex flex-col items-center justify-center p-6">
       <div className="text-center space-y-12 max-w-md w-full">
         {/* Title */}
-        <div
-          className="space-y-5"
-          style={{ animation: "fadeInUp 0.8s ease-out both" }}
-        >
+        <div className="space-y-5">
           <h2
-            className="text-4xl tracking-tight"
+            className="text-3xl tracking-tight"
             style={{
               fontFamily: "var(--font-display)",
               color: "var(--color-charcoal)",
@@ -42,7 +39,6 @@ export default function DressCodeSection() {
         <div
           className="rounded-2xl p-10"
           style={{
-            animation: "fadeInScale 0.8s ease-out 0.3s both",
             backgroundColor: "rgba(255, 255, 255, 0.85)",
             backdropFilter: "blur(12px)",
             border: "1px solid var(--color-rose-light)",

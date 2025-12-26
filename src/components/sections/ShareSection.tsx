@@ -11,12 +11,9 @@ export default function ShareSection({
     <section className="pt-60 pb-60 w-full flex flex-col items-center justify-center p-6">
       <div className="space-y-12 max-w-md w-full">
         {/* Title */}
-        <div
-          className="text-center space-y-3"
-          style={{ animation: "fadeInUp 0.8s ease-out both" }}
-        >
+        <div className="text-center space-y-5">
           <h2
-            className="text-3xl tracking-tight"
+            className="text-2xl tracking-tight"
             style={{
               fontFamily: "var(--font-display)",
               color: "var(--color-charcoal)",
@@ -37,10 +34,7 @@ export default function ShareSection({
         </div>
 
         {/* Share Buttons */}
-        <div
-          className="space-y-4"
-          style={{ animation: "fadeInScale 0.8s ease-out 0.2s both" }}
-        >
+        <div className="space-y-4">
           <button
             onClick={onKakaoShare}
             className="w-full py-4 font-medium rounded-xl transition-all btn-elegant flex items-center justify-center gap-3"
@@ -74,7 +68,6 @@ export default function ShareSection({
         <div
           className="text-center pt-12 text-xs tracking-wider"
           style={{
-            animation: "fadeInUp 0.8s ease-out 0.4s both",
             fontFamily: "var(--font-body)",
             color: "var(--color-gray-soft)",
             fontWeight: 300,

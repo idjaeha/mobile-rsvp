@@ -13,16 +13,13 @@ export default function CoupleContactSection({
     <section className="pb-30 w-full flex flex-col items-center justify-center p-6 py-12">
       <div className="text-center space-y-12 max-w-md w-full">
         {/* Couple Contact Info */}
-        <div
-          className="space-y-10 pt-8"
-          style={{ animation: "fadeInUp 0.8s ease-out 0.4s both" }}
-        >
+        <div className="space-y-10 pt-8">
           {/* Groom Contact */}
           <div className="space-y-5">
             <h3
               className="text-xl tracking-tight"
               style={{
-                fontFamily: "var(--font-display)",
+                fontFamily: "var(--font-body)",
                 color: "var(--color-charcoal)",
                 fontWeight: 500,
               }}
@@ -34,6 +31,7 @@ export default function CoupleContactSection({
                 onClick={() => onCall(groomPhone)}
                 className="btn-elegant inline-flex items-center gap-2 px-8 py-3 rounded-full transition-all"
                 style={{
+                  fontFamily: "var(--font-pretendard)",
                   backgroundColor: "transparent",
                   border: "1.5px solid var(--color-rose-primary)",
                   color: "var(--color-rose-dark)",
@@ -70,6 +68,7 @@ export default function CoupleContactSection({
                 onClick={() => onCall(bridePhone)}
                 className="btn-elegant inline-flex items-center gap-2 px-8 py-3 rounded-full transition-all"
                 style={{
+                  fontFamily: "var(--font-pretendard)",
                   backgroundColor: "transparent",
                   border: "1.5px solid var(--color-rose-primary)",
                   color: "var(--color-rose-dark)",

@@ -38,15 +38,12 @@ export default function LocationSection({
     window.open(urls[type], "_blank");
   };
   return (
-    <section className="pt-60 pb-60 w-full flex flex-col items-center justify-center p-6">
+    <section className="pt-30 pb-60 w-full flex flex-col items-center justify-center p-6">
       <div className="space-y-10 max-w-md w-full">
         {/* Title */}
-        <div
-          className="text-center space-y-3"
-          style={{ animation: "fadeInUp 0.8s ease-out both" }}
-        >
+        <div className="text-center space-y-5">
           <h2
-            className="text-3xl tracking-tight"
+            className="text-2xl tracking-tight"
             style={{
               fontFamily: "var(--font-display)",
               color: "var(--color-charcoal)",
@@ -66,10 +63,7 @@ export default function LocationSection({
           </div>
         </div>
 
-        <div
-          className="space-y-6"
-          style={{ animation: "fadeInScale 0.8s ease-out 0.2s both" }}
-        >
+        <div className="space-y-6">
           {/* 카카오맵 이미지 */}
           <div
             className="overflow-hidden rounded-xl"
@@ -115,7 +109,7 @@ export default function LocationSection({
                   rel="noopener noreferrer"
                   className="text-xs underline tracking-wide"
                   style={{
-                    fontFamily: "var(--font-body)",
+                    fontFamily: "var(--font-pretendard-gothic)",
                     color: "var(--color-charcoal)",
                   }}
                 >
@@ -139,7 +133,7 @@ export default function LocationSection({
               <h3
                 className="mb-2 tracking-tight"
                 style={{
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "var(--font-pretendard-gothic)",
                   color: "var(--color-charcoal)",
                   fontWeight: 500,
                   fontSize: "1.125rem",
@@ -150,7 +144,7 @@ export default function LocationSection({
               <p
                 className="text-sm tracking-wide"
                 style={{
-                  fontFamily: "var(--font-body)",
+                  fontFamily: "var(--font-pretendard-gothic)",
                   color: "var(--color-gray-soft)",
                   fontWeight: 300,
                 }}
@@ -165,6 +159,7 @@ export default function LocationSection({
                 onClick={() => handleNavigation("naver")}
                 className="flex-1 py-3 text-sm font-medium rounded-lg transition-all btn-elegant flex items-center justify-center gap-2"
                 style={{
+                  fontFamily: "var(--font-pretendard-gothic)",
                   backgroundColor: "#03C75A",
                   color: "white",
                 }}
@@ -176,6 +171,7 @@ export default function LocationSection({
                 onClick={() => handleNavigation("kakao")}
                 className="flex-1 py-3 text-sm font-medium rounded-lg transition-all btn-elegant flex items-center justify-center gap-2"
                 style={{
+                  fontFamily: "var(--font-pretendard-gothic)",
                   backgroundColor: "#FEE500",
                   color: "#3C1E1E",
                 }}
@@ -187,6 +183,7 @@ export default function LocationSection({
                 onClick={() => handleNavigation("tmap")}
                 className="flex-1 py-3 text-sm font-medium rounded-lg transition-all btn-elegant flex items-center justify-center gap-2"
                 style={{
+                  fontFamily: "var(--font-pretendard-gothic)",
                   backgroundColor: "#1E88E5",
                   color: "white",
                 }}
@@ -203,6 +200,7 @@ export default function LocationSection({
             <div
               className="rounded-xl p-5"
               style={{
+                fontFamily: "var(--font-pretendard-gothic)",
                 backgroundColor: "rgba(255, 255, 255, 0.9)",
                 backdropFilter: "blur(10px)",
                 border: "1px solid var(--color-rose-light)",
@@ -213,7 +211,7 @@ export default function LocationSection({
                 <span className="text-2xl">🚇</span>
                 <h3 className="font-semibold text-gray-800 text-lg">지하철</h3>
               </div>
-              <div className=" p-4">
+              <div className="p-4">
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 w-6 h-6 bg-rose-500 text-white rounded-full flex items-center justify-center text-xs font-bold">
@@ -228,7 +226,7 @@ export default function LocationSection({
                   </div>
 
                   <div className="flex items-center justify-center">
-                    <div className="text-rose-400 text-lg">↓</div>
+                    <div className="text-rose-400 text-lg"></div>
                   </div>
 
                   <div className="flex items-start gap-3">
@@ -243,7 +241,7 @@ export default function LocationSection({
                   </div>
 
                   <div className="flex items-center justify-center">
-                    <div className="text-rose-400 text-lg">↓</div>
+                    <div className="text-rose-400 text-lg"></div>
                   </div>
 
                   <div className="flex items-start gap-3">
@@ -267,6 +265,7 @@ export default function LocationSection({
             <div
               className="rounded-xl p-5"
               style={{
+                fontFamily: "var(--font-pretendard-gothic)",
                 backgroundColor: "rgba(255, 255, 255, 0.9)",
                 backdropFilter: "blur(10px)",
                 border: "1px solid var(--color-rose-light)",
@@ -279,7 +278,10 @@ export default function LocationSection({
               </div>
 
               {/* 중요 안내 */}
-              <div className="mb-4 bg-blue-50 rounded-lg p-3 border border-blue-200">
+              <div
+                className="mb-4 bg-blue-50 rounded-lg p-3 border border-blue-200"
+                style={{ fontFamily: "var(--font-pretendard-gothic)" }}
+              >
                 <p className="text-sm font-semibold text-blue-800 mb-1">
                   📍 버스 이용 시
                 </p>
@@ -290,7 +292,10 @@ export default function LocationSection({
 
               <div className="space-y-3">
                 {/* 하이브랜드 정류장 */}
-                <div className="border-l-4 border-green-400 pl-3 py-2">
+                <div
+                  className="border-l-4 border-green-400 pl-3 py-2"
+                  style={{ fontFamily: "var(--font-pretendard-gothic)" }}
+                >
                   <p className="text-sm font-medium text-gray-700 mb-2">
                     하이브랜드 정류장 하차 [22384]
                   </p>
@@ -305,7 +310,10 @@ export default function LocationSection({
                 </div>
 
                 {/* 양곡 도매시장 정류장 */}
-                <div className="border-l-4 border-blue-400 pl-3 py-2">
+                <div
+                  className="border-l-4 border-blue-400 pl-3 py-2"
+                  style={{ fontFamily: "var(--font-pretendard-gothic)" }}
+                >
                   <p className="text-sm font-medium text-gray-700 mb-2">
                     양곡 도매시장 정류장 하차 [22299]
                   </p>
@@ -393,6 +401,7 @@ export default function LocationSection({
             <div
               className="rounded-xl p-5"
               style={{
+                fontFamily: "var(--font-pretendard-gothic)",
                 backgroundColor: "rgba(255, 255, 255, 0.9)",
                 backdropFilter: "blur(10px)",
                 border: "1px solid var(--color-rose-light)",

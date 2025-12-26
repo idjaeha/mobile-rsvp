@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
 
 /* 경기천년 폰트 - 로컬 폰트 */
 /* 경기천년 바탕체 (본문용) */
@@ -67,15 +68,18 @@
   --color-gold-light: #e8d4a0;
 
   /* Typography */
-  --font-display: "Gyeonggi Cheonnyeon Jemok", "Noto Serif KR", serif;
-  --font-secondary: "Gyeonggi Cheonnyeon Jemok", "Noto Serif KR", serif;
-  --font-body: "Gyeonggi Cheonnyeon Batang", -apple-system,
+  --font-display: "Gyeonggi Cheonnyeon Batang", "Noto Serif KR", serif;
+  --font-secondary: "Gyeonggi Cheonnyeon Batang", "Noto Serif KR", serif;
+  --font-body: "Pretendard Gothic", -apple-system, "Apple SD Gothic Neo",
+    sans-serif;
+  --font-pretendard: "Pretendard", -apple-system, "Apple SD Gothic Neo",
+    sans-serif;
+  --font-pretendard-gothic: "Pretendard Gothic", -apple-system,
     "Apple SD Gothic Neo", sans-serif;
 }
 
 @layer base {
   body {
-    font-family: var(--font-body);
     color: var(--color-charcoal);
     background: white;
   }
@@ -84,7 +88,6 @@
   h1,
   h2,
   h3 {
-    font-family: var(--font-display);
     font-weight: 500;
     letter-spacing: -0.02em;
   }

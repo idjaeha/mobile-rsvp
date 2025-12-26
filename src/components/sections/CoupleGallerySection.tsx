@@ -8,10 +8,10 @@ export default function CoupleGallerySection({
   images,
 }: CoupleGallerySectionProps) {
   return (
-    <section className="w-full flex flex-col items-center justify-center p-6 py-12">
+    <section className="w-full flex flex-col items-center justify-center p-6 pt-24">
       <div className="text-center space-y-12 max-w-md w-full">
         {/* Photo Gallery */}
-        <div style={{ animation: "fadeInScale 0.8s ease-out 0.2s both" }}>
+        <div>
           <PhotoGallery images={images} />
         </div>
       </div>

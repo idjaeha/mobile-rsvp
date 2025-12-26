@@ -127,12 +127,9 @@ export default function GiftSection({
     <section className="pt-60 pb-60 w-full flex flex-col items-center justify-center p-6">
       <div className="space-y-10 max-w-md w-full">
         {/* Title */}
-        <div
-          className="text-center space-y-3"
-          style={{ animation: "fadeInUp 0.8s ease-out both" }}
-        >
+        <div className="text-center space-y-5">
           <h2
-            className="text-3xl tracking-tight"
+            className="text-2xl tracking-tight"
             style={{
               fontFamily: "var(--font-display)",
               color: "var(--color-charcoal)",
@@ -152,10 +149,7 @@ export default function GiftSection({
           </div>
         </div>
 
-        <div
-          className="space-y-5"
-          style={{ animation: "fadeInScale 0.8s ease-out 0.2s both" }}
-        >
+        <div className="space-y-5">
           {/* Groom's Account Accordion */}
           <div
             className="overflow-hidden rounded-xl"
@@ -173,9 +167,9 @@ export default function GiftSection({
               <h3
                 className="text-lg tracking-tight"
                 style={{
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "var(--font-body)",
                   color: "var(--color-charcoal)",
-                  fontWeight: 500,
+                  fontWeight: 400,
                 }}
               >
                 신랑측 계좌
@@ -250,9 +244,9 @@ export default function GiftSection({
               <h3
                 className="text-lg tracking-tight"
                 style={{
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "var(--font-body)",
                   color: "var(--color-charcoal)",
-                  fontWeight: 500,
+                  fontWeight: 400,
                 }}
               >
                 신부측 계좌
