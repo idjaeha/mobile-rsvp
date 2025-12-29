@@ -116,12 +116,12 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
         createPortal(
           <div
             ref={modalRef}
-            className="fixed inset-0 bg-black flex items-center justify-center p-0 m-0"
+            className="fixed inset-0 bg-[#000000FF] flex items-center justify-center p-0 m-0"
             onClick={closeModal}
             onKeyDown={handleKeyDown}
             tabIndex={0}
             style={{
-              height: "100vh",
+              height: "100dvh",
               width: "100vw",
               zIndex: 9999,
               top: 0,
