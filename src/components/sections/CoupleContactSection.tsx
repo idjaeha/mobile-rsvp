@@ -31,7 +31,7 @@ export default function CoupleContactSection({
                 onClick={() => onCall(groomPhone)}
                 className="btn-elegant inline-flex items-center gap-2 px-8 py-3 rounded-full transition-all"
                 style={{
-                  fontFamily: "var(--font-pretendard)",
+                  fontFamily: "var(--font-display)",
                   backgroundColor: "transparent",
                   border: "1.5px solid var(--color-rose-primary)",
                   color: "var(--color-rose-dark)",
@@ -68,7 +68,7 @@ export default function CoupleContactSection({
                 onClick={() => onCall(bridePhone)}
                 className="btn-elegant inline-flex items-center gap-2 px-8 py-3 rounded-full transition-all"
                 style={{
-                  fontFamily: "var(--font-pretendard)",
+                  fontFamily: "var(--font-display)",
                   backgroundColor: "transparent",
                   border: "1.5px solid var(--color-rose-primary)",
                   color: "var(--color-rose-dark)",

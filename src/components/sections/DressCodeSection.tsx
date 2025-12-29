@@ -1,6 +1,6 @@
 export default function DressCodeSection() {
   return (
-    <section className="pt-30 pb-30 w-full flex flex-col items-center justify-center p-6">
+    <section className="pt-10 pb-10 w-full flex flex-col items-center justify-center p-6">
       <div className="text-center space-y-12 max-w-md w-full">
         {/* Title */}
         <div className="space-y-5">
@@ -48,7 +48,7 @@ export default function DressCodeSection() {
           <p
             className="text-base leading-relaxed"
             style={{
-              fontFamily: "var(--font-body)",
+              fontFamily: "var(--font-display)",
               color: "var(--color-charcoal)",
               fontWeight: 300,
               lineHeight: "1.8",

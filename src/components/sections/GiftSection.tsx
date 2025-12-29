@@ -124,7 +124,7 @@ export default function GiftSection({
   );
 
   return (
-    <section className="pt-30 pb-30 w-full flex flex-col items-center justify-center p-6">
+    <section className="pt-10 pb-10 w-full flex flex-col items-center justify-center p-6">
       <div className="space-y-10 max-w-md w-full">
         {/* Title */}
         <div className="text-center space-y-5">
@@ -167,7 +167,7 @@ export default function GiftSection({
               <h3
                 className="text-lg tracking-tight"
                 style={{
-                  fontFamily: "var(--font-body)",
+                  fontFamily: "var(--font-display)",
                   color: "var(--color-charcoal)",
                   fontWeight: 400,
                 }}
@@ -250,7 +250,7 @@ export default function GiftSection({
               <h3
                 className="text-lg tracking-tight"
                 style={{
-                  fontFamily: "var(--font-body)",
+                  fontFamily: "var(--font-display)",
                   color: "var(--color-charcoal)",
                   fontWeight: 400,
                 }}

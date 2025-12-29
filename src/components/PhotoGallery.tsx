@@ -85,7 +85,7 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
   return (
     <>
       {/* 3x4 Grid Gallery */}
-      <div className="grid grid-cols-3 gap-3 w-full max-w-md mx-auto">
+      <div className="grid grid-cols-3 w-full max-w-md mx-auto">
         {images.map((image, index) => (
           <button
             key={index}

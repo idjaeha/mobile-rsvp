@@ -8,7 +8,7 @@ export default function ShareSection({
   onCopyLink,
 }: ShareSectionProps) {
   return (
-    <section className="pt-30 pb-30 w-full flex flex-col items-center justify-center p-6">
+    <section className="pt-10 pb-10 w-full flex flex-col items-center justify-center p-6">
       <div className="space-y-12 max-w-md w-full">
         {/* Title */}
         <div className="text-center space-y-5">
@@ -41,7 +41,7 @@ export default function ShareSection({
             style={{
               backgroundColor: "#FEE500",
               color: "#3C1E1E",
-              fontFamily: "var(--font-body)",
+              fontFamily: "var(--font-display)",
               fontSize: "1rem",
             }}
           >
@@ -55,7 +55,7 @@ export default function ShareSection({
               backgroundColor: "transparent",
               border: "1.5px solid var(--color-rose-primary)",
               color: "var(--color-charcoal)",
-              fontFamily: "var(--font-body)",
+              fontFamily: "var(--font-display)",
               fontSize: "1rem",
             }}
           >
@@ -68,7 +68,7 @@ export default function ShareSection({
         <div
           className="text-center pt-12 text-xs tracking-wider"
           style={{
-            fontFamily: "var(--font-body)",
+            fontFamily: "var(--font-display)",
             color: "var(--color-gray-soft)",
             fontWeight: 300,
           }}
