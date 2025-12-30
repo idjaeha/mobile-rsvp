@@ -21,9 +21,29 @@ declare global {
             handler: () => void
           ) => void;
         };
+        services: {
+          Places: new () => KakaoPlaces;
+          Status: {
+            OK: string;
+          };
+        };
       };
     };
   }
+}
+
+interface KakaoPlaces {
+  keywordSearch: (
+    keyword: string,
+    callback: (data: KakaoPlaceResult[], status: string) => void
+  ) => void;
+}
+
+interface KakaoPlaceResult {
+  place_name: string;
+  address_name: string;
+  x: string; // longitude
+  y: string; // latitude
 }
 
 interface KakaoMap {
@@ -37,19 +57,19 @@ interface KakaoMarker {
 interface LocationSectionProps {
   placeName?: string;
   address?: string;
-  latitude?: number;
-  longitude?: number;
 }
 
 export default function LocationSection({
   placeName = "라시따시어터",
   address = "서울 서초구 매헌로 16 하이브랜드 패션관 1층",
-  latitude = 37.4629528,
-  longitude = 127.0369582,
 }: LocationSectionProps) {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<KakaoMap | null>(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
+  const [placeCoords, setPlaceCoords] = useState<{
+    lat: number;
+    lng: number;
+  } | null>(null);
 
   // 카카오맵 SDK 동적 로드
   useEffect(() => {
@@ -75,72 +95,83 @@ export default function LocationSection({
       return;
     }
 
-    // 동적으로 스크립트 로드
+    // 동적으로 스크립트 로드 (services 라이브러리 추가)
     const script = document.createElement("script");
-    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${KAKAO_API_KEY}&autoload=false`;
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${KAKAO_API_KEY}&libraries=services&autoload=false`;
     script.async = true;
     script.onload = () => setIsMapLoaded(true);
     script.onerror = () => console.error("카카오맵 SDK 로드 실패");
     document.head.appendChild(script);
   }, []);
 
-  // 지도 초기화
+  // 지도 초기화 및 키워드 검색
   useEffect(() => {
     if (!isMapLoaded || !window.kakao || !window.kakao.maps) return;
 
     window.kakao.maps.load(() => {
       if (!mapContainerRef.current) return;
 
-      const options = {
-        center: new window.kakao.maps.LatLng(latitude, longitude),
-        level: 3,
-      };
+      // 키워드로 장소 검색
+      const ps = new window.kakao.maps.services.Places();
 
-      const map = new window.kakao.maps.Map(mapContainerRef.current, options);
-      mapRef.current = map;
+      ps.keywordSearch(placeName, (data, status) => {
+        if (status !== window.kakao.maps.services.Status.OK || !data[0]) {
+          console.error("장소 검색 실패:", placeName);
+          return;
+        }
 
-      const markerPosition = new window.kakao.maps.LatLng(latitude, longitude);
-      const marker = new window.kakao.maps.Marker({
-        map: map,
-        position: markerPosition,
-      });
+        const place = data[0];
+        const lat = parseFloat(place.y);
+        const lng = parseFloat(place.x);
 
-      // 마커 클릭 시 카카오맵으로 이동
-      window.kakao.maps.event.addListener(marker, "click", () => {
-        window.open(
-          `https://map.kakao.com/link/map/${encodeURIComponent(
-            placeName
-          )},${latitude},${longitude}`,
-          "_blank"
-        );
-      });
+        // 좌표 저장
+        setPlaceCoords({ lat, lng });
 
-      // 지도 클릭 시에도 카카오맵으로 이동
-      window.kakao.maps.event.addListener(map, "click", () => {
-        window.open(
-          `https://map.kakao.com/link/map/${encodeURIComponent(
-            placeName
-          )},${latitude},${longitude}`,
-          "_blank"
-        );
+        // 지도 생성
+        const options = {
+          center: new window.kakao.maps.LatLng(lat, lng),
+          level: 3,
+        };
+
+        const map = new window.kakao.maps.Map(mapContainerRef.current!, options);
+        mapRef.current = map;
+
+        // 마커 생성
+        const markerPosition = new window.kakao.maps.LatLng(lat, lng);
+        const marker = new window.kakao.maps.Marker({
+          map: map,
+          position: markerPosition,
+        });
+
+        // 마커 클릭 시 카카오맵으로 이동
+        window.kakao.maps.event.addListener(marker, "click", () => {
+          window.open(
+            `https://map.kakao.com/link/map/${encodeURIComponent(placeName)},${lat},${lng}`,
+            "_blank"
+          );
+        });
+
+        // 지도 클릭 시에도 카카오맵으로 이동
+        window.kakao.maps.event.addListener(map, "click", () => {
+          window.open(
+            `https://map.kakao.com/link/map/${encodeURIComponent(placeName)},${lat},${lng}`,
+            "_blank"
+          );
+        });
       });
     });
-  }, [isMapLoaded, latitude, longitude, placeName]);
+  }, [isMapLoaded, placeName]);
 
-  // 네이버 지도 URL
-  const naverMapUrl = `https://map.naver.com/p/search/${encodeURIComponent(
-    placeName
-  )}?c=${longitude},${latitude},15,0,0,0,dh`;
+  // 네이버 지도 URL (장소명으로 검색)
+  const naverMapUrl = `https://map.naver.com/p/search/${encodeURIComponent(placeName)}`;
 
-  // 카카오맵 URL
-  const kakaoMapUrl = `https://map.kakao.com/link/map/${encodeURIComponent(
-    placeName
-  )},${latitude},${longitude}`;
+  // 카카오맵 URL (장소명으로 검색)
+  const kakaoMapUrl = placeCoords
+    ? `https://map.kakao.com/link/map/${encodeURIComponent(placeName)},${placeCoords.lat},${placeCoords.lng}`
+    : `https://map.kakao.com/link/search/${encodeURIComponent(placeName)}`;
 
-  // 티맵 URL
-  const tmapUrl = `tmap://route?goalname=${encodeURIComponent(
-    placeName
-  )}&goalx=${longitude}&goaly=${latitude}`;
+  // 티맵 URL (장소명으로 검색)
+  const tmapUrl = `tmap://search?name=${encodeURIComponent(placeName)}`;
 
   const handleNavigation = (type: "naver" | "kakao" | "tmap") => {
     const urls = {

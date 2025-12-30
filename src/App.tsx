@@ -109,8 +109,6 @@ function App() {
         <LocationSection
           placeName={data.wedding.venue.name}
           address={data.wedding.venue.address}
-          latitude={data.wedding.venue.location.latitude}
-          longitude={data.wedding.venue.location.longitude}
         />
       </div>
 
