@@ -62,21 +62,23 @@ export default function BackgroundMusic({ bgmUrl }: BackgroundMusicProps) {
       {/* Floating Music Toggle Button */}
       <button
         onClick={togglePlay}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center transition-all duration-300"
+        className="fixed bottom-4 right-4 z-50 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300"
         style={{
-          backgroundColor: 'rgba(255, 255, 255, 0.95)',
-          backdropFilter: 'blur(10px)',
-          border: '1px solid var(--color-rose-light)',
-          boxShadow: '0 4px 20px rgba(232, 169, 182, 0.2)',
-          color: 'var(--color-rose-primary)'
+          backgroundColor: "rgba(255, 255, 255, 0.95)",
+          backdropFilter: "blur(10px)",
+          border: "1px solid var(--color-rose-light)",
+          boxShadow: "0 4px 20px rgba(232, 169, 182, 0.2)",
+          color: "var(--color-rose-primary)",
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'scale(1.1)';
-          e.currentTarget.style.boxShadow = '0 8px 30px rgba(232, 169, 182, 0.35)';
+          e.currentTarget.style.transform = "scale(1.1)";
+          e.currentTarget.style.boxShadow =
+            "0 8px 30px rgba(232, 169, 182, 0.35)";
         }}
         onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'scale(1)';
-          e.currentTarget.style.boxShadow = '0 4px 20px rgba(232, 169, 182, 0.2)';
+          e.currentTarget.style.transform = "scale(1)";
+          e.currentTarget.style.boxShadow =
+            "0 4px 20px rgba(232, 169, 182, 0.2)";
         }}
         aria-label={isPlaying ? "음악 일시정지" : "음악 재생"}
       >

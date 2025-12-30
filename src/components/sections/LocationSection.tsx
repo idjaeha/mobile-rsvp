@@ -108,7 +108,9 @@ export default function LocationSection({
       // 마커 클릭 시 카카오맵으로 이동
       window.kakao.maps.event.addListener(marker, "click", () => {
         window.open(
-          `https://map.kakao.com/link/map/${encodeURIComponent(placeName)},${latitude},${longitude}`,
+          `https://map.kakao.com/link/map/${encodeURIComponent(
+            placeName
+          )},${latitude},${longitude}`,
           "_blank"
         );
       });
@@ -116,7 +118,9 @@ export default function LocationSection({
       // 지도 클릭 시에도 카카오맵으로 이동
       window.kakao.maps.event.addListener(map, "click", () => {
         window.open(
-          `https://map.kakao.com/link/map/${encodeURIComponent(placeName)},${latitude},${longitude}`,
+          `https://map.kakao.com/link/map/${encodeURIComponent(
+            placeName
+          )},${latitude},${longitude}`,
           "_blank"
         );
       });
@@ -129,7 +133,9 @@ export default function LocationSection({
   )}?c=${longitude},${latitude},15,0,0,0,dh`;
 
   // 카카오맵 URL
-  const kakaoMapUrl = `https://map.kakao.com/link/map/${encodeURIComponent(placeName)},${latitude},${longitude}`;
+  const kakaoMapUrl = `https://map.kakao.com/link/map/${encodeURIComponent(
+    placeName
+  )},${latitude},${longitude}`;
 
   // 티맵 URL
   const tmapUrl = `tmap://route?goalname=${encodeURIComponent(
@@ -146,7 +152,7 @@ export default function LocationSection({
     window.open(urls[type], "_blank");
   };
   return (
-    <section className="pt-30 pb-30 w-full flex flex-col items-center justify-center p-6">
+    <section className="pt-30 pb-10 w-full flex flex-col items-center justify-center p-6">
       <div className="space-y-10 max-w-md w-full">
         {/* Title */}
         <div className="text-center space-y-5">
