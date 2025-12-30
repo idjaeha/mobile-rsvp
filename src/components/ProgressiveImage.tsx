@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 interface ProgressiveImageProps {
   lowQualitySrc: string;
@@ -11,7 +11,7 @@ export default function ProgressiveImage({
   lowQualitySrc,
   highQualitySrc,
   alt,
-  className = ''
+  className = "",
 }: ProgressiveImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -26,7 +26,7 @@ export default function ProgressiveImage({
       src={isLoaded ? highQualitySrc : lowQualitySrc}
       alt={alt}
       className={`${className} transition-all duration-500 ${
-        isLoaded ? '' : 'blur-sm scale-[1.02]'
+        isLoaded ? "" : "blur-sm scale-[1.02]"
       }`}
     />
   );
