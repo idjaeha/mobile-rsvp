@@ -64,12 +64,12 @@ node scripts/optimize-images.mjs src/assets/gallery
 
 ### 생성되는 파일
 
-| 입력 | 출력 |
-|------|------|
-| `image.jpeg` | `image.webp` (최적화된 WebP) |
+| 입력         | 출력                                    |
+| ------------ | --------------------------------------- |
+| `image.jpeg` | `image.webp` (최적화된 WebP)            |
 | `image.jpeg` | `image-lqip.webp` (저품질 플레이스홀더) |
-| `image.png` | `image.webp` (최적화된 WebP) |
-| `image.png` | `image-lqip.webp` (저품질 플레이스홀더) |
+| `image.png`  | `image.webp` (최적화된 WebP)            |
+| `image.png`  | `image-lqip.webp` (저품질 플레이스홀더) |
 
 ### 설정 변경
 
@@ -78,14 +78,14 @@ node scripts/optimize-images.mjs src/assets/gallery
 ```javascript
 const CONFIG = {
   webp: {
-    quality: 85,      // WebP 품질 (0-100)
-    effort: 6,        // 압축 노력 (0-6, 높을수록 느리지만 작음)
+    quality: 85, // WebP 품질 (0-100)
+    effort: 6, // 압축 노력 (0-6, 높을수록 느리지만 작음)
   },
   lqip: {
-    width: 40,        // LQIP 너비 (픽셀)
-    quality: 20,      // LQIP 품질 (0-100)
+    width: 40, // LQIP 너비 (픽셀)
+    quality: 20, // LQIP 품질 (0-100)
   },
-  extensions: ['.jpg', '.jpeg', '.png'],  // 처리할 확장자
+  extensions: [".jpg", ".jpeg", ".png"], // 처리할 확장자
 };
 ```
 
