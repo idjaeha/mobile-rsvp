@@ -9,11 +9,9 @@ export default function MainPhotoSection() {
       style={{ height: "100dvh" }}
     >
       <div
+        className="flex justify-center"
         style={{
           backgroundColor: "black",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
         }}
       >
         <ProgressiveImage
