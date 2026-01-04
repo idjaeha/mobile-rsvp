@@ -33,8 +33,8 @@
     "groom": {
       "groom": {
         "name": "신랑 권동현",
-        "bank": "카카오뱅크",
-        "account": "3333-01-2345678",
+        "bank": "신한은행",
+        "account": "110291424100",
         "kakaoPayLink": "https://qr.kakaopay.com/Ej9CwgkrO"
       },
       "father": {
@@ -51,8 +51,8 @@
     "bride": {
       "bride": {
         "name": "신부 최유진",
-        "bank": "카카오뱅크",
-        "account": "3333-09-8765432",
+        "bank": "케이뱅크",
+        "account": "100113540113",
         "kakaoPayLink": "https://qr.kakaopay.com/Ej7oeI4rG"
       },
       "father": {
