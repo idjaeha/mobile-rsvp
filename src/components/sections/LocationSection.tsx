@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 declare global {
   interface Window {
@@ -63,6 +64,7 @@ export default function LocationSection({
   placeName = "라시따시어터",
   address = "서울 서초구 매헌로 16 하이브랜드 패션관 1층",
 }: LocationSectionProps) {
+  const { ref: scrollRef, isVisible } = useScrollAnimation();
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<KakaoMap | null>(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
@@ -183,7 +185,10 @@ export default function LocationSection({
     window.open(urls[type], "_blank");
   };
   return (
-    <section className="pt-30 pb-10 w-full flex flex-col items-center justify-center p-6">
+    <section
+      ref={scrollRef}
+      className={`pt-30 pb-10 w-full flex flex-col items-center justify-center p-6 ${isVisible ? "scroll-visible" : "scroll-hidden"}`}
+    >
       <div className="space-y-10 max-w-md w-full">
         {/* Title */}
         <div className="text-center space-y-5">

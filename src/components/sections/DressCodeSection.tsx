@@ -1,6 +1,13 @@
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+
 export default function DressCodeSection() {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="pt-10 pb-10 w-full flex flex-col items-center justify-center p-6">
+    <section
+      ref={ref}
+      className={`pt-10 pb-10 w-full flex flex-col items-center justify-center p-6 ${isVisible ? "scroll-visible" : "scroll-hidden"}`}
+    >
       <div className="text-center space-y-12 max-w-md w-full">
         {/* Title */}
         <div className="space-y-5">

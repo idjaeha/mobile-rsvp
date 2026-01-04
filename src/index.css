@@ -207,4 +207,28 @@
   .divider-elegant::after {
     right: 0;
   }
+
+  /* Scroll Animation Classes */
+  .scroll-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .scroll-visible {
+    animation: fadeInUp 0.7s ease-out forwards;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hidden {
+    opacity: 1;
+    transform: none;
+  }
+
+  .scroll-visible {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }

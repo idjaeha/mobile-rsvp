@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 interface AccountInfo {
   name: string;
@@ -24,6 +25,7 @@ export default function GiftSection({
   groomAccounts,
   brideAccounts,
 }: GiftSectionProps) {
+  const { ref, isVisible } = useScrollAnimation();
   const [groomExpanded, setGroomExpanded] = useState(false);
   const [brideExpanded, setBrideExpanded] = useState(false);
 
@@ -124,7 +126,10 @@ export default function GiftSection({
   );
 
   return (
-    <section className="pt-10 pb-10 w-full flex flex-col items-center justify-center p-6">
+    <section
+      ref={ref}
+      className={`pt-10 pb-10 w-full flex flex-col items-center justify-center p-6 ${isVisible ? "scroll-visible" : "scroll-hidden"}`}
+    >
       <div className="space-y-10 max-w-md w-full">
         {/* Title */}
         <div className="text-center space-y-5">

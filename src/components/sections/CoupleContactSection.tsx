@@ -1,3 +1,5 @@
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+
 interface CoupleContactSectionProps {
   groomPhone?: string;
   bridePhone?: string;
@@ -9,8 +11,13 @@ export default function CoupleContactSection({
   bridePhone,
   onCall,
 }: CoupleContactSectionProps) {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="pb-30 w-full flex flex-col items-center justify-center p-6 py-12">
+    <section
+      ref={ref}
+      className={`pb-30 w-full flex flex-col items-center justify-center p-6 py-12 ${isVisible ? "scroll-visible" : "scroll-hidden"}`}
+    >
       <div className="text-center space-y-12 max-w-md w-full">
         {/* Couple Contact Info */}
         <div className="space-y-10 pt-8">

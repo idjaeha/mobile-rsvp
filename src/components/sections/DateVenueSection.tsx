@@ -1,10 +1,16 @@
 import ProgressiveImage from "../ProgressiveImage";
 import coupleLetterLqip from "../../assets/main/2-lqip.webp";
 import coupleLetterImage from "../../assets/main/2.webp";
+import { useScrollAnimation } from "../../hooks/useScrollAnimation";
 
 export default function DateVenueSection() {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="w-full flex justify-center">
+    <section
+      ref={ref}
+      className={`w-full flex justify-center ${isVisible ? "scroll-visible" : "scroll-hidden"}`}
+    >
       <ProgressiveImage
         lowQualitySrc={coupleLetterLqip}
         highQualitySrc={coupleLetterImage}
