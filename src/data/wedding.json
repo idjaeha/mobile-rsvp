@@ -56,14 +56,14 @@
         "kakaoPayLink": "https://qr.kakaopay.com/Ej7oeI4rG"
       },
       "father": {
-        "name": "",
-        "bank": "",
-        "account": ""
+        "name": "아버지 최정규",
+        "bank": "새마을금고",
+        "account": "0649090080831"
       },
       "mother": {
-        "name": "",
-        "bank": "",
-        "account": ""
+        "name": "어머니 신현경",
+        "bank": "국민은행",
+        "account": "058240326568"
       }
     }
   },

@@ -128,7 +128,9 @@ export default function GiftSection({
   return (
     <section
       ref={ref}
-      className={`pt-10 pb-10 w-full flex flex-col items-center justify-center p-6 ${isVisible ? "scroll-visible" : "scroll-hidden"}`}
+      className={`pt-10 pb-10 w-full flex flex-col items-center justify-center p-6 ${
+        isVisible ? "scroll-visible" : "scroll-hidden"
+      }`}
     >
       <div className="space-y-10 max-w-md w-full">
         {/* Title */}
@@ -286,6 +288,37 @@ export default function GiftSection({
                 style={{ borderColor: "var(--color-rose-light)" }}
               >
                 <AccountCard account={brideAccounts.bride} label="신부" />
+                {(brideAccounts.father || brideAccounts.mother) && (
+                  <div
+                    className="border-t pt-5"
+                    style={{ borderColor: "var(--color-rose-light)" }}
+                  >
+                    <p
+                      className="text-xs tracking-wider mb-4"
+                      style={{
+                        fontFamily: "var(--font-body)",
+                        color: "var(--color-gray-soft)",
+                        fontWeight: 300,
+                      }}
+                    >
+                      혼주 계좌
+                    </p>
+                    <div className="space-y-4">
+                      {brideAccounts.father && (
+                        <AccountCard
+                          account={brideAccounts.father}
+                          label="신부 아버지"
+                        />
+                      )}
+                      {brideAccounts.mother && (
+                        <AccountCard
+                          account={brideAccounts.mother}
+                          label="신부 어머니"
+                        />
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
