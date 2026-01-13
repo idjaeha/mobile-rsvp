@@ -82,11 +82,19 @@ export default function GuestbookSection() {
         }
       }
 
+      // Validate input
+      const trimmedName = name.trim();
+      const trimmedMessage = message.trim();
+
+      if (!trimmedName || !trimmedMessage) {
+        throw new Error("이름과 메시지를 입력해주세요.");
+      }
+
       // Insert entry
       const { error: insertError } = await supabase.from("guestbook").insert([
         {
-          name: name.trim(),
-          message: message.trim(),
+          name: trimmedName,
+          message: trimmedMessage,
         },
       ]);
 
@@ -217,7 +225,7 @@ export default function GuestbookSection() {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 required
-                maxLength={200}
+                maxLength={300}
                 rows={3}
                 disabled={isSubmitting}
                 placeholder="축하 메시지를 남겨주세요"
@@ -233,7 +241,7 @@ export default function GuestbookSection() {
                 className="text-xs text-right"
                 style={{ color: "var(--color-gray-soft)" }}
               >
-                {message.length}/200
+                {message.length}/300
               </p>
             </div>
 
