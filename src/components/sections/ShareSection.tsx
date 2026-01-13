@@ -43,15 +43,6 @@ export default function ShareSection({
           </div>
         </div>
 
-        {/* Footer Image */}
-        <div className="-mx-6 w-[calc(100%+3rem)]">
-          <img
-            src={footerImage}
-            alt="Wedding footer"
-            className="w-full h-auto"
-          />
-        </div>
-
         {/* Share Buttons */}
         <div className="space-y-4">
           <button
@@ -83,6 +74,14 @@ export default function ShareSection({
           </button>
         </div>
 
+        {/* Footer Image */}
+        <div className="-mx-6 w-[calc(100%+3rem)]">
+          <img
+            src={footerImage}
+            alt="Wedding footer"
+            className="w-full h-auto"
+          />
+        </div>
         {/* Footer */}
         <div
           className="text-center pt-12 text-xs tracking-wider"

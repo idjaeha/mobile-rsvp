@@ -10,6 +10,7 @@ import CalendarSection from "./components/sections/CalendarSection";
 import LocationSection from "./components/sections/LocationSection";
 import DressCodeSection from "./components/sections/DressCodeSection";
 import GiftSection from "./components/sections/GiftSection";
+import GuestbookSection from "./components/sections/GuestbookSection";
 import ShareSection from "./components/sections/ShareSection";
 import { initKakao, shareKakao } from "./utils/kakao";
 import weddingData from "./data/wedding.json";
@@ -121,6 +122,10 @@ function App() {
           groomAccounts={data.accounts.groom}
           brideAccounts={data.accounts.bride}
         />
+      </div>
+
+      <div className="snap-section">
+        <GuestbookSection />
       </div>
 
       <div className="snap-section">
