@@ -1,4 +1,5 @@
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
+import footerImage from "../../assets/footer/footer.png";
 
 interface ShareSectionProps {
   onKakaoShare: () => void;
@@ -14,7 +15,9 @@ export default function ShareSection({
   return (
     <section
       ref={ref}
-      className={`pt-10 pb-10 w-full flex flex-col items-center justify-center p-6 ${isVisible ? "scroll-visible" : "scroll-hidden"}`}
+      className={`pt-10 pb-10 w-full flex flex-col items-center justify-center p-6 ${
+        isVisible ? "scroll-visible" : "scroll-hidden"
+      }`}
     >
       <div className="space-y-12 max-w-md w-full">
         {/* Title */}
@@ -38,6 +41,15 @@ export default function ShareSection({
               }}
             ></div>
           </div>
+        </div>
+
+        {/* Footer Image */}
+        <div className="-mx-6 w-[calc(100%+3rem)]">
+          <img
+            src={footerImage}
+            alt="Wedding footer"
+            className="w-full h-auto"
+          />
         </div>
 
         {/* Share Buttons */}
