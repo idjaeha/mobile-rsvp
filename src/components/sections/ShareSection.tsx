@@ -1,5 +1,4 @@
 import { useScrollAnimation } from "../../hooks/useScrollAnimation";
-import footerImage from "../../assets/footer/footer.png";
 
 interface ShareSectionProps {
   onKakaoShare: () => void;
@@ -43,15 +42,6 @@ export default function ShareSection({
           </div>
         </div>
 
-        {/* Footer Image */}
-        <div className="-mx-6 w-[calc(100%+3rem)]">
-          <img
-            src={footerImage}
-            alt="Wedding footer"
-            className="w-full h-auto"
-          />
-        </div>
-
         {/* Share Buttons */}
         <div className="space-y-4">
           <button
@@ -81,21 +71,6 @@ export default function ShareSection({
             <span className="text-xl">🔗</span>
             <span>링크 복사</span>
           </button>
-        </div>
-
-        {/* Footer */}
-        <div
-          className="text-center pt-12 text-xs tracking-wider"
-          style={{
-            fontFamily: "var(--font-display)",
-            color: "var(--color-gray-soft)",
-            fontWeight: 300,
-          }}
-        >
-          <p>© 2026 Wedding Invitation</p>
-          <p className="mt-2" style={{ color: "var(--color-rose-primary)" }}>
-            최유진 ♥ 권동현
-          </p>
         </div>
       </div>
     </section>

@@ -12,6 +12,7 @@ import DressCodeSection from "./components/sections/DressCodeSection";
 import GiftSection from "./components/sections/GiftSection";
 import GuestbookSection from "./components/sections/GuestbookSection";
 import ShareSection from "./components/sections/ShareSection";
+import FooterSection from "./components/sections/FooterSection";
 import { initKakao, shareKakao } from "./utils/kakao";
 import weddingData from "./data/wedding.json";
 import type { WeddingData } from "./types/wedding";
@@ -133,6 +134,10 @@ function App() {
           onKakaoShare={handleKakaoShare}
           onCopyLink={handleCopyLink}
         />
+      </div>
+
+      <div className="snap-section">
+        <FooterSection />
       </div>
     </div>
   );
