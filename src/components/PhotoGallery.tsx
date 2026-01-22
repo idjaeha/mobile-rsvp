@@ -84,9 +84,9 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
 
   return (
     <>
-      {/* 3x4 Grid Gallery */}
+      {/* 3x3 Grid Gallery - Show only first 9 images */}
       <div className="grid grid-cols-3 w-full max-w-md mx-auto">
-        {images.map((image, index) => (
+        {images.slice(0, 9).map((image, index) => (
           <button
             key={index}
             onClick={() => openModal(index)}
