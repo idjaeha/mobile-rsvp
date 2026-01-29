@@ -321,7 +321,7 @@ src/
   "metadata": {
     "title": "최유진과 곽동현 결혼합니다 🤵🏻‍♂️👰🏻‍♀️",
     "description": "2026년 03월 21일 토요일 오후",
-    "ogImage": "/thumbnail.jpge",
+    "ogImage": "/thumbnail.jpeg",
     "bgmUrl": "/bgm.mp3"
   }
 }

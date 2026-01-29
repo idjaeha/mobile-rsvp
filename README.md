@@ -137,7 +137,7 @@ npm run preview
 `public/` 디렉토리에 다음 파일들을 추가합니다:
 
 - `/images/` - 갤러리 이미지들
-- `/thumbnail.jpge` - OG 이미지
+- `/thumbnail.jpeg` - OG 이미지
 - `/bgm.mp3` - 배경 음악
 
 ## 최근 업데이트
