@@ -125,6 +125,10 @@ export default function GuestbookSection() {
     setDisplayCount((prev) => prev + ITEMS_PER_PAGE);
   };
 
+  const handleCollapse = () => {
+    setDisplayCount(ITEMS_PER_PAGE);
+  };
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString("ko-KR", {
@@ -385,22 +389,39 @@ export default function GuestbookSection() {
                 </div>
               ))}
 
-              {/* Load More Button */}
-              {hasMore && (
-                <button
-                  onClick={handleLoadMore}
-                  className="w-full py-3 text-sm rounded-lg transition-all btn-elegant"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "1px solid var(--color-rose-primary)",
-                    color: "var(--color-charcoal)",
-                    fontFamily: "var(--font-body)",
-                    fontWeight: 400,
-                  }}
-                >
-                  더보기 ({entries.length - displayCount}개 더)
-                </button>
-              )}
+              {/* Load More / Collapse Buttons */}
+              <div className="flex gap-2">
+                {hasMore && (
+                  <button
+                    onClick={handleLoadMore}
+                    className="flex-1 py-3 text-sm rounded-lg transition-all btn-elegant"
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "1px solid var(--color-rose-primary)",
+                      color: "var(--color-charcoal)",
+                      fontFamily: "var(--font-body)",
+                      fontWeight: 400,
+                    }}
+                  >
+                    더보기 ({entries.length - displayCount}개 더)
+                  </button>
+                )}
+                {displayCount > ITEMS_PER_PAGE && (
+                  <button
+                    onClick={handleCollapse}
+                    className={`${hasMore ? "flex-1" : "w-full"} py-3 text-sm rounded-lg transition-all btn-elegant`}
+                    style={{
+                      backgroundColor: "transparent",
+                      border: "1px solid var(--color-gray-soft)",
+                      color: "var(--color-gray-soft)",
+                      fontFamily: "var(--font-body)",
+                      fontWeight: 400,
+                    }}
+                  >
+                    접기
+                  </button>
+                )}
+              </div>
             </>
           )}
         </div>
