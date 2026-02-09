@@ -49,11 +49,23 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
 
   // Handle touch events for swipe
   const onTouchStart = (e: React.TouchEvent) => {
+    // Disable swipe when multi-touch (pinch gesture) is detected
+    if (e.touches.length > 1) {
+      setTouchStart(null);
+      setTouchEnd(null);
+      return;
+    }
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
   };
 
   const onTouchMove = (e: React.TouchEvent) => {
+    // Stop tracking swipe during multi-touch
+    if (e.touches.length > 1) {
+      setTouchStart(null);
+      setTouchEnd(null);
+      return;
+    }
     setTouchEnd(e.targetTouches[0].clientX);
   };
 
@@ -155,6 +167,7 @@ export default function PhotoGallery({ images }: PhotoGalleryProps) {
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
+              style={{ touchAction: "pan-x pan-y pinch-zoom" }}
             >
               <img
                 src={images[selectedIndex]}
